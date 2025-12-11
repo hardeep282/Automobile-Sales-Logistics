@@ -1,0 +1,90 @@
+customername,recency_days,frequency_orders,monetary_sales,avg_totalmsrp,n_unique_products,shipping_reliability,main_country,main_city,main_productline,main_dealsize,R_score,F_score,M_score,RFM_score,value_tier,ship_bucket,value_ship_segment,cluster_kmeans,cluster_label
+"AV Stores, Co.",197,3,157807.81,3194.5882352941176,37,1.0,UK,Manchester,Vintage Cars,Medium,2,1,1,4,Low Value,Reliable,Low Value – Stable/Upsell,0,Core Stable Buyers
+Alpha Cognac,65,3,70488.44,3357.45,20,1.0,France,Toulouse,Ships,Medium,4,1,3,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Amica Models & Co.,266,2,94117.26,3511.230769230769,26,1.0,Italy,Torino,Vintage Cars,Small,1,3,2,6,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Anna's Decorations, Ltd",84,4,153996.13,3325.0,41,1.0,Australia,North Sydney,Classic Cars,Small,3,1,1,5,Low Value,Reliable,Low Value – Stable/Upsell,0,Core Stable Buyers
+Atelier graphique,189,3,24179.96,3572.0,7,1.0,France,Nantes,Classic Cars,Medium,2,2,4,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Australian Collectables, Ltd",23,3,64591.46,2728.3478260869565,23,0.782608695652174,Australia,Glen Waverly,Vintage Cars,Small,4,2,4,10,High Value,Unreliable,High Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+"Australian Collectors, Co.",185,5,200995.41,3628.0545454545454,40,1.0,Australia,Melbourne,Motorcycles,Medium,3,1,1,5,Low Value,Reliable,Low Value – Stable/Upsell,0,Core Stable Buyers
+"Australian Gift Network, Co",120,3,59469.12,3996.266666666667,15,1.0,Australia,South Brisbane,Classic Cars,Medium,3,2,4,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Auto Assoc. & Cie.,234,2,64834.32,3623.8333333333335,17,1.0,France,Versailles,Vintage Cars,Medium,1,3,4,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Auto Canal Petit,55,3,93170.66,3461.8888888888887,18,1.0,France,Paris,Motorcycles,Medium,4,2,2,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Auto-Moto Classics Inc.,181,3,26479.26,3099.25,8,1.0,USA,Brickhaven,Planes,Medium,3,2,4,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Baane Mini Imports,209,4,116599.19,3612.15625,32,1.0,Norway,Stavern,Trucks and Buses,Medium,2,1,2,5,Low Value,Reliable,Low Value – Stable/Upsell,0,Core Stable Buyers
+"Bavarian Collectables Imports, Co.",260,1,34993.92,2418.285714285714,14,1.0,Germany,Munich,Planes,Small,1,4,4,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+"Blauer See Auto, Co.",209,4,85171.59,3800.636363636364,22,1.0,Germany,Frankfurt,Classic Cars,Medium,2,1,3,6,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Boards & Toys Co.,114,2,9129.35,3138.333333333333,3,1.0,USA,Glendale,Classic Cars,Small,3,3,4,10,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+CAF Imports,440,2,49642.05,3984.153846153846,13,1.0,Spain,Madrid,Ships,Medium,1,3,4,8,Mid Value,Reliable,Mid Value – Stable,3,Ultra VIP Heavy Buyers
+Cambridge Collectables Co.,390,2,36163.62,3140.0,11,1.0,USA,Cambridge,Vintage Cars,Medium,1,3,4,8,Mid Value,Reliable,Mid Value – Stable,3,Ultra VIP Heavy Buyers
+Canadian Gift Exchange Network,223,2,75238.92,3462.454545454545,19,1.0,Canada,Vancouver,Trucks and Buses,Small,2,3,3,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Classic Gift Ideas, Inc",231,2,67506.97,3169.285714285714,21,1.0,USA,Philadelphia,Vintage Cars,Small,2,4,4,10,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Classic Legends Inc.,193,3,77795.2,3742.45,20,1.0,USA,NYC,Classic Cars,Medium,2,2,3,7,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Clover Collections, Co.",259,2,57756.43,3396.375,16,1.0,Ireland,Dublin,Classic Cars,Small,1,4,4,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Collectable Mini Designs Co.,461,2,87489.23,3595.32,25,1.0,USA,San Diego,Classic Cars,Medium,1,4,2,7,Mid Value,Reliable,Mid Value – Stable,3,Ultra VIP Heavy Buyers
+Collectables For Less Inc.,133,3,81577.98,3459.6666666666665,24,1.0,USA,Brickhaven,Classic Cars,Small,3,2,3,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Corrida Auto Replicas, Ltd",213,3,120615.28,3768.34375,26,1.0,Spain,Madrid,Vintage Cars,Medium,2,2,1,5,Low Value,Reliable,Low Value – Stable/Upsell,0,Core Stable Buyers
+Cruz & Sons Co.,198,3,94015.73,3683.846153846154,22,1.0,Philippines,Makati City,Classic Cars,Medium,2,2,2,6,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Daedalus Designs Imports,466,2,69052.41,3429.55,14,1.0,France,Lille,Motorcycles,Small,1,4,4,9,High Value,Reliable,High Value – Stable,3,Ultra VIP Heavy Buyers
+Danish Wholesale Imports,47,5,145041.6,3983.444444444444,31,0.6944444444444444,Denmark,Kobenhavn,Classic Cars,Medium,4,1,1,6,Mid Value,Critical,Mid Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+Diecast Classics Inc.,2,4,122138.14,3820.032258064516,31,0.935483870967742,USA,Allentown,Trucks and Buses,Small,4,1,1,6,Mid Value,Minor Issues,Mid Value – Stable,0,Core Stable Buyers
+Diecast Collectables,402,2,70859.78,3971.0,18,1.0,USA,Boston,Trucks and Buses,Medium,1,4,3,8,Mid Value,Reliable,Mid Value – Stable,3,Ultra VIP Heavy Buyers
+"Double Decker Gift Stores, Ltd",496,2,36019.04,2829.4166666666665,12,1.0,UK,London,Vintage Cars,Small,1,4,4,9,High Value,Reliable,High Value – Stable,3,Ultra VIP Heavy Buyers
+"Dragon Souveniers, Ltd.",91,5,172989.68,4037.116279069768,37,1.0,Singapore,Singapore,Classic Cars,Medium,3,1,1,5,Low Value,Reliable,Low Value – Stable/Upsell,0,Core Stable Buyers
+Enaco Distributors,190,3,78411.86,3343.7391304347825,22,1.0,Spain,Barcelona,Ships,Medium,2,2,3,7,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Euro Shopping Channel,1,26,912294.11,3507.6254826254826,106,0.8223938223938224,Spain,Madrid,Classic Cars,Medium,4,1,1,6,Mid Value,Unreliable,Mid Value – Fulfilment Risk,2,Dormant / Aging Customers
+FunGiftIdeas.com,90,3,98923.73,3696.923076923077,26,1.0,USA,New Bedford,Classic Cars,Medium,3,2,2,7,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Gift Depot Inc.,27,3,101894.79,4123.04,25,1.0,USA,Bridgewater,Classic Cars,Medium,4,2,2,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Gift Ideas Corp.,180,3,57294.42,2976.2105263157896,19,1.0,USA,Glendale,Planes,Medium,3,2,4,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Gifts4AllAges.com,26,3,83209.88,3153.230769230769,21,0.4615384615384615,USA,Boston,Ships,Medium,4,2,3,9,High Value,Critical,High Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+Handji Gifts& Co,39,4,115498.73,3268.777777777778,29,1.0,Singapore,Singapore,Classic Cars,Small,4,1,2,7,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Heintze Collectables,223,2,100595.55,3694.851851851852,27,1.0,Denmark,Aaarhus,Classic Cars,Medium,2,4,2,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Herkku Gifts,272,3,111640.28,3730.793103448276,29,1.0,Norway,Bergen,Classic Cars,Medium,1,2,2,5,Low Value,Reliable,Low Value – Stable/Upsell,0,Core Stable Buyers
+"Iberia Gift Imports, Corp.",239,2,54723.62,3667.2,15,1.0,Spain,Sevilla,Trucks and Buses,Medium,1,4,4,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+L'ordine Souveniers,22,3,142601.33,3567.333333333333,39,1.0,Italy,Reggio Emilia,Classic Cars,Small,4,2,1,7,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"La Corne D'abondance, Co.",194,3,97203.68,4200.130434782609,22,1.0,France,Paris,Classic Cars,Medium,2,2,2,6,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+La Rochelle Gifts,1,4,180124.9,3334.075471698113,43,0.7547169811320755,France,Nantes,Motorcycles,Medium,4,1,1,6,Mid Value,Unreliable,Mid Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+Land of Toys Inc.,199,4,164069.44,3340.285714285714,41,0.7142857142857143,USA,NYC,Motorcycles,Medium,2,1,1,4,Low Value,Unreliable,Low Value – Not Priority,1,Value Buyers with Shipping Issues
+Lyon Souveniers,76,3,78570.34,3692.75,20,1.0,France,Paris,Motorcycles,Medium,4,2,3,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Marseille Mini Autos,147,3,74936.14,3221.16,24,1.0,France,Marseille,Classic Cars,Small,3,2,3,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Marta's Replicas Co.,232,2,103080.38,3697.851851851852,27,1.0,USA,Cambridge,Motorcycles,Medium,1,4,2,7,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Microscale Inc.,211,2,33144.93,3208.2,10,1.0,USA,NYC,Motorcycles,Small,2,4,4,10,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Mini Auto Werke,83,3,52263.9,3692.6,15,0.4666666666666667,Austria,Graz,Classic Cars,Medium,3,2,4,9,High Value,Critical,High Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+Mini Caravy,48,3,80438.48,4305.421052631579,19,1.0,France,Strasbourg,Classic Cars,Small,4,2,3,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Mini Classics,230,2,85555.99,3319.230769230769,26,1.0,USA,White Plains,Planes,Medium,2,4,3,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Mini Creations Ltd.,146,3,108951.13,3215.1428571428573,34,1.0,USA,New Bedford,Ships,Small,3,2,2,7,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Mini Gifts Distributors Ltd.,3,17,654858.06,3620.572222222222,77,0.9888888888888888,USA,San Rafael,Classic Cars,Medium,4,1,1,6,Mid Value,Reliable,Mid Value – Stable,2,Dormant / Aging Customers
+Motor Mint Distributors Inc.,197,3,83682.16,3685.695652173913,17,1.0,USA,Philadelphia,Classic Cars,Medium,2,3,3,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Muscle Machine Inc,183,4,197736.94,4007.9583333333335,32,1.0,USA,NYC,Classic Cars,Medium,3,1,1,5,Low Value,Reliable,Low Value – Stable/Upsell,0,Core Stable Buyers
+"Norway Gifts By Mail, Co.",285,2,79224.23,3239.9166666666665,24,1.0,Norway,Oslo,Classic Cars,Small,1,4,3,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Online Diecast Creations Co.,210,3,131685.3,3829.823529411765,34,1.0,USA,Nashua,Classic Cars,Medium,2,3,1,6,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Online Mini Collectables,265,2,57197.96,4037.8,15,1.0,USA,Brickhaven,Classic Cars,Medium,1,4,4,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Osaka Souveniers Co.,415,2,67605.07,3457.4,20,1.0,Japan,Osaka,Planes,Small,1,4,4,9,High Value,Reliable,High Value – Stable,3,Ultra VIP Heavy Buyers
+"Oulu Toy Supplies, Inc.",122,3,104370.38,3324.65625,31,1.0,Finland,Oulu,Classic Cars,Medium,3,3,2,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Petit Auto,2,3,74972.52,3085.8,20,0.8,Belgium,Bruxelles,Vintage Cars,Small,4,3,3,10,High Value,Unreliable,High Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+Quebec Home Shopping Network,31,3,74204.79,3474.2272727272725,22,1.0,Canada,Montreal,Classic Cars,Medium,4,3,3,10,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Reims Collectables,63,5,135042.94,3486.4634146341464,37,1.0,France,Reims,Classic Cars,Medium,4,1,1,6,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Rovelli Gifts,202,3,137955.72,2880.8541666666665,34,1.0,Italy,Bergamo,Vintage Cars,Small,2,3,1,6,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Royal Canadian Collectables, Ltd.",286,2,74634.85,2834.538461538461,26,1.0,Canada,Tsawassen,Planes,Small,1,4,3,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Royale Belge,143,4,33440.1,4205.75,8,1.0,Belgium,Charleroi,Classic Cars,Medium,3,1,4,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Salzburg Collectables,15,4,149798.63,3837.65,36,1.0,Austria,Salzburg,Classic Cars,Medium,4,1,1,6,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Saveley & Henriot, Co.",457,3,142874.25,3515.951219512195,41,1.0,France,Lyon,Vintage Cars,Medium,1,3,1,5,Low Value,Reliable,Low Value – Stable/Upsell,3,Ultra VIP Heavy Buyers
+Scandinavian Gift Ideas,90,3,134259.33,3562.6315789473683,38,0.5789473684210527,Sweden,Boras,Classic Cars,Medium,3,3,1,7,Mid Value,Critical,Mid Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+Signal Collectibles Ltd.,477,2,50218.51,3184.733333333333,15,1.0,USA,Brisbane,Vintage Cars,Small,1,4,4,9,High Value,Reliable,High Value – Stable,3,Ultra VIP Heavy Buyers
+Signal Gift Stores,185,3,82751.08,3067.655172413793,24,1.0,USA,Las Vegas,Classic Cars,Small,3,3,3,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
+Souveniers And Things Co.,3,4,151570.98,3231.260869565217,44,0.717391304347826,Australia,Chatswood,Vintage Cars,Medium,4,1,1,6,Mid Value,Unreliable,Mid Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+"Stylish Desk Decors, Co.",181,3,88804.5,3431.1153846153848,26,1.0,UK,London,Trucks and Buses,Medium,3,3,2,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Suominen Souveniers,147,3,113961.15,3831.4,30,1.0,Finland,Espoo,Classic Cars,Medium,3,3,2,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Super Scale Inc.,394,2,79472.07,4496.882352941177,17,1.0,USA,New Haven,Classic Cars,Medium,1,4,3,8,Mid Value,Reliable,Mid Value – Stable,3,Ultra VIP Heavy Buyers
+Technics Stores Inc.,148,4,120783.07,3457.970588235294,30,1.0,USA,Burlingame,Motorcycles,Medium,3,1,1,5,Low Value,Reliable,Low Value – Stable/Upsell,0,Core Stable Buyers
+Tekni Collectables Inc.,59,3,83228.19,3954.9523809523807,21,0.4285714285714285,USA,Newark,Planes,Medium,4,3,3,10,High Value,Critical,High Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+The Sharp Gifts Warehouse,40,4,160010.27,3967.5,39,0.7,USA,San Jose,Planes,Small,4,1,1,6,Mid Value,Critical,Mid Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+"Tokyo Collectables, Ltd",40,4,120562.74,3646.40625,32,1.0,Japan,Minato-ku,Vintage Cars,Small,4,1,1,6,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Toms Spezialitten, Ltd",229,2,100306.58,3787.769230769231,17,1.0,Germany,Koln,Classic Cars,Medium,2,4,2,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Toys of Finland, Co.",113,3,111250.38,3547.6666666666665,30,1.0,Finland,Helsinki,Classic Cars,Medium,3,3,2,8,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Toys4GrownUps.com,141,3,104561.96,3491.9666666666667,29,0.5666666666666667,USA,Pasadena,Motorcycles,Medium,3,3,2,8,Mid Value,Critical,Mid Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+"UK Collectables, Ltd.",54,3,118008.27,4141.310344827586,29,0.5172413793103449,UK,Liverpool,Classic Cars,Medium,4,3,2,9,High Value,Critical,High Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+"Vida Sport, Ltd",276,2,117713.56,3931.677419354839,17,1.0,Switzerland,Gensve,Classic Cars,Medium,1,4,2,7,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+Vitachrome Inc.,209,3,88041.26,3282.56,25,1.0,USA,NYC,Motorcycles,Small,2,3,2,7,Mid Value,Reliable,Mid Value – Stable,0,Core Stable Buyers
+"Volvo Model Replicas, Co",195,4,75754.88,3862.4736842105262,19,0.6842105263157895,Sweden,Lule,Classic Cars,Medium,2,1,3,6,Mid Value,Critical,Mid Value – Fulfilment Risk,1,Value Buyers with Shipping Issues
+West Coast Collectables Co.,489,2,46084.64,3699.4615384615386,13,1.0,USA,Burbank,Vintage Cars,Medium,1,4,4,9,High Value,Reliable,High Value – Stable,3,Ultra VIP Heavy Buyers
+giftsbymail.co.uk,213,2,78240.84,3061.923076923077,26,1.0,UK,Cowes,Planes,Small,2,4,3,9,High Value,Reliable,High Value – Stable,0,Core Stable Buyers
