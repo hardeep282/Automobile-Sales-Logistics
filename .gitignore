@@ -1,25 +1,35 @@
-# Python
+# --------------------
+# Python cache
+# --------------------
 __pycache__/
 *.py[cod]
-*.ipynb_checkpoints
 
-# Environment
+# --------------------
+# Virtual environments
+# --------------------
 env/
 venv/
 .venv/
 
-# OS files
+# --------------------
+# Jupyter
+# --------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# --------------------
+# OS / Editor
+# --------------------
 .DS_Store
 Thumbs.db
-
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
-# Logs
-*.log
-
-# VSCode
 .vscode/
 
-# Data files (if you don’t want to upload raw data)
-# data/
+# --------------------
+# Logs
+# --------------------
+*.log
+
+# --------------------
+# Streamlit
+# --------------------
+.streamlit/
