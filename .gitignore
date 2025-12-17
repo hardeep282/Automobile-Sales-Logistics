@@ -1,12 +1,14 @@
 # --------------------
-# Python cache
+# Python bytecode / cache
 # --------------------
 __pycache__/
 *.py[cod]
+*.pyo
 
 # --------------------
 # Virtual environments
 # --------------------
+.env
 env/
 venv/
 .venv/
@@ -18,7 +20,7 @@ venv/
 *.ipynb_checkpoints
 
 # --------------------
-# OS / Editor
+# OS / Editor files
 # --------------------
 .DS_Store
 Thumbs.db
@@ -33,3 +35,8 @@ Thumbs.db
 # Streamlit
 # --------------------
 .streamlit/
+
+# --------------------
+# Project outputs (generated)
+# --------------------
+Output/
