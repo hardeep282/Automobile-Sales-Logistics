@@ -134,7 +134,21 @@ streamlit run app.py
 | High Value + High Reliability | Retain | Upsell |
 | Low Value + High Reliability | Growth potential | Targeted offers |
 
+## 📁 Repository Structure
+```
+project/
+│── app.py
+│── requirements.txt
+│── src/
+│   ├── charts.py
+│   ├── data_cleaning.py
+│   └── feature_engineering.py
+│── Data/
+│── Notebooks/
+│── README.md
+```
 
+---
 
 
 👤 Author
