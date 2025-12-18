@@ -1,4 +1,4 @@
-**Customer Value & Shipping Risk Intelligence**
+Customer Value & Shipping Risk Intelligence
 
 Technologies: Python, Pandas, Scikit-Learn, Seaborn, Matplotlib, Power BI
 Domain: Sales Analytics | Marketing Analytics | Operational Intelligence
@@ -117,6 +117,17 @@ python -m venv venv
 source venv/bin/activate # or venv\Scripts\activate
 pip install -r requirements.txt
 streamlit run app.py
+
+
+
+## 🛠 Tech Stack
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Framework-red)
+![Pandas](https://img.shields.io/badge/Pandas-Data--Analysis-green)
+![Sklearn](https://img.shields.io/badge/Sklearn-ML-orange)
+
+
+
 
 👤 Author
 
