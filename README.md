@@ -135,7 +135,7 @@ streamlit run app.py
 | Low Value + High Reliability | Growth potential | Targeted offers |
 
 ## 📁 Repository Structure
-```
+
 project/
 │── app.py
 │── requirements.txt
@@ -146,7 +146,7 @@ project/
 │── Data/
 │── Notebooks/
 │── README.md
-```
+
 
 ---
 
