@@ -1,4 +1,4 @@
-#**Customer Value & Shipping Risk Intelligence**
+**Customer Value & Shipping Risk Intelligence**
 
 Technologies: Python, Pandas, Scikit-Learn, Seaborn, Matplotlib, Power BI
 Domain: Sales Analytics | Marketing Analytics | Operational Intelligence
@@ -7,10 +7,10 @@ Domain: Sales Analytics | Marketing Analytics | Operational Intelligence
 
 To build a data-driven customer intelligence model that combines customer value (RFM segmentation) with logistics performance (shipping reliability) in order to identify:
 
-•	High-value customers at fulfilment risk
-•	Stable VIP customers
-•	Upsell opportunities
-•	Operational inefficiencies affecting revenue retention
+-	High-value customers at fulfilment risk
+-	Stable VIP customers
+-	Upsell opportunities
+-	Operational inefficiencies affecting revenue retention
 
 📂 Dataset Overview
 
