@@ -1,4 +1,4 @@
-Customer Value & Shipping Risk Intelligence
+#**Customer Value & Shipping Risk Intelligence**
 
 Technologies: Python, Pandas, Scikit-Learn, Seaborn, Matplotlib, Power BI
 Domain: Sales Analytics | Marketing Analytics | Operational Intelligence
