@@ -1,3 +1,6 @@
+** *Automobile Sales based on Customer Value and Shipping Risk Intelligence* **
+
+
 Customer Value & Shipping Risk Intelligence
 
 Technologies: Python, Pandas, Scikit-Learn, Seaborn, Matplotlib, Power BI
@@ -134,8 +137,9 @@ streamlit run app.py
 | High Value + High Reliability | Retain | Upsell |
 | Low Value + High Reliability | Growth potential | Targeted offers |
 
-## 📁 Repository Structure
 
+## 📁 Repository Structure
+```
 project/
 │── app.py
 │── requirements.txt
@@ -146,7 +150,7 @@ project/
 │── Data/
 │── Notebooks/
 │── README.md
-
+```
 
 ---
 
