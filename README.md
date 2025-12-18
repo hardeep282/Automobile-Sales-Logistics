@@ -127,6 +127,14 @@ streamlit run app.py
 ![Sklearn](https://img.shields.io/badge/Sklearn-ML-orange)
 
 
+## 💼 Business Insights
+| Segment | Behaviour | Action |
+|---------|-----------|--------|
+| High Value + Low Reliability | At risk | Improve logistics |
+| High Value + High Reliability | Retain | Upsell |
+| Low Value + High Reliability | Growth potential | Targeted offers |
+
+
 
 
 👤 Author
