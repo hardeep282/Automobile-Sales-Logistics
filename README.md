@@ -141,7 +141,7 @@ An executive-ready Power BI dashboard was built to visualise:
 ```
 
 
-## 🛠 Tech Stack
+## 🛠 _Tech Stack_
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Framework-red)
 ![Pandas](https://img.shields.io/badge/Pandas-Data--Analysis-green)
@@ -149,18 +149,22 @@ An executive-ready Power BI dashboard was built to visualise:
 
 
 
-## 📁 Repository Structure
+## 📁 _Repository Structure_
 ```
 project/
-│── app.py
-│── requirements.txt
-│── src/
-│   ├── charts.py
-│   ├── data_cleaning.py
-│   └── feature_engineering.py
 │── Data/
 │── Notebooks/
+│── src/
+│   ├── charts.py
+│   ├── init.py
+│   ├── preprocessing.py
+|   └── utils.py
+│── .gitignore
+│── LICENSE
 │── README.md
+│── app.py
+│──requirements.txt
+
 ```
 
 ---
@@ -168,5 +172,9 @@ project/
 
 👤 Author
 
-Hardeep Bamrah
+**Hardeep Bamrah**  
 Aspiring Business Analyst | Marketing & Sales Analytics | UK-based Graduate
+
+## 📄 _License_
+
+MIT License
