@@ -87,7 +87,7 @@ A linear regression model was built to understand numerical revenue drivers.
 
 Key findings:
 
--	Order frequency, product variety, and order value were the strongest predictors.
+-  Order frequency, product variety, and order value were the strongest predictors.
 - Shipping reliability showed low direct revenue impact but high churn and risk segmentation value.
 
 
@@ -112,7 +112,7 @@ Key findings:
 ✅ Business Impact
 
 -	Improved targeting for customer retention campaigns
-- Prioritised logistics audits for high-revenue risk customers
+-   Prioritised logistics audits for high-revenue risk customers
 -	Data-backed upsell strategy for mid-tier customers
 -	Executive-level visibility into revenue vs fulfilment trade-offs
 
@@ -130,14 +130,15 @@ An executive-ready Power BI dashboard was built to visualise:
 
 
 ## _How to Run Locally_
+```
+- git clone <repo-url>
+- cd Automobile-Sales-Logistics
+- python -m venv venv
+- source venv/bin/activate # or venv\Scripts\activate
+- pip install -r requirements.txt
+- streamlit run app.py
 
-git clone <repo-url>
-cd Automobile-Sales-Logistics
-python -m venv venv
-source venv/bin/activate # or venv\Scripts\activate
-pip install -r requirements.txt
-streamlit run app.py
-
+```
 
 
 ## 🛠 Tech Stack
