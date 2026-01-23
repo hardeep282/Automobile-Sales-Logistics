@@ -1,180 +1,191 @@
-# ***Automobile Sales based on Customer Value and Shipping Risk Intelligence***
+#***🚗 Automobile Sales & Logistics Intelligence Platform***
 
+**_Author: Hardeep Bamrah_**
 
+Role Focus: Business Analyst | Data Analyst | BI Analyst
+Domain: Sales Performance • Logistics Risk • Customer Intelligence
 
-**_Customer Value & Shipping Risk Intelligence_**
+📌 **_Project Overview_**
 
+This project delivers an end-to-end sales and logistics intelligence solution that combines customer value analysis, operational risk monitoring, and revenue performance using Python, SQL, and Power BI.
 
-🛠 _Tools & Skills_
+The objective is not just to calculate metrics, but to connect customer behaviour, fulfilment reliability, and revenue risk into a single analytical framework that supports operational and commercial decision-making.
 
-Python, Pandas, NumPy, Scikit-Learn, Seaborn, Matplotlib, Power BI
-Customer Analytics | Marketing Analytics | Operational Intelligence | Clustering | KPI Design
+🎯 Business Objectives
 
+- Identify high-revenue customers and products exposed to logistics risk
 
-📌 **_Project Objective_**
+- Measure operational reliability and failure patterns across countries and time
 
-To build a data-driven customer intelligence model that combines customer value (RFM segmentation) with logistics performance (shipping reliability) in order to understand:
+- Understand revenue concentration and risk exposure
 
--	Some high-value customers at fulfilment risk
--	Stable customers with overall high purchasing power and shipping reliability
--	Upsell opportunities
--	logistics inefficiencies affecting revenue retention for certain bracket of consumers
+- Support retention, logistics optimisation, and revenue protection     decisions
+
+- Provide executive-ready dashboards backed by robust KPI logic
 
 📂 **_Dataset Overview_**
 
-A Customer-level dataset was derived from automobile sales transactions containing:
+The analysis is based on historical automobile sales transactions and was transformed into customer- and order-level analytical datasets, containing:
 
--	Recency of purchase
--	Purchase frequency
--	Revenue contribution or Monetary power
--	Product variety
--	Average order value (MSRP)
--	Shipping success ratio
--	Geographical and product categories
+- Order dates, status, and fulfilment outcomes
 
-🧠 **_Key Analytical Layers_**
+- Revenue and pricing (MSRP-based)
 
-1️⃣ _RFM Segmentation_
+- Customer purchase behaviour (frequency, recency, value)
 
--	Customers were categorised into High, Mid, and Low Value tiers based on:
--	Recency (days since last purchase)
--	Frequency (number of orders)
--	Monetary (total revenue generated)
+- Product and country attributes
 
-This was the foundation for basic customer evaluation.
+🏗️ **_Analytics Style_**
 
-2️⃣ _Shipping Reliability Intelligence_
+The solution follows a layered analytics approach, mirroring real-world data workflows.
 
-A shipping reliability score was calculated for each customer using historical fulfilment success rates.
-Customers were further grouped into:
+🟦 **_Python — Exploratory & Advanced Analytics Layer_**
 
--	Reliable
--	Minor Issues
--	Unreliable
--	Critical
+Used for exploration, validation, and behavioural intelligence before productionising KPIs.
 
-3️⃣ _Composite Value × Shipping Segmentation_
+Key work includes:
 
-By combining RFM value tiers with shipping reliability, strategic business segments were formed, such as:
+- RFM segmentation (Recency, Frequency, Monetary)
 
--	High Value – Fulfilment Risk
--	High Value – Stable
--	Mid Value – Risk
--	Low Priority Customers
--	This layer directly supports:
--	Retention strategy
--	Logistics optimisation
--	Revenue protection
+- Customer value tiering (High / Mid / Low)
 
-4️⃣ _Behavioural Clustering (K-Means)_
+- Shipping reliability scoring at customer level
 
-K-Means clustering was applied on to understand the distribution pattern based on segmentation
-	
--	RFM features
--	Shipping reliability
--	Product variety
+- Composite Customer Value × Shipping Risk segmentation
 
-This revealed distinct behavioural customer personas such as:
+- K-Means clustering to identify behavioural personas
 
--	Core stable buyers
--	VIP heavy buyers
--	Operational risk customers
+- Regression analysis to understand revenue drivers
 
+Python answers:
+“What patterns exist, and which KPIs actually matter?”
 
-5️⃣ _Supporting Revenue Regression_
+🟨 **_SQL — Data Modeling & KPI Engine_**
 
-A linear regression model was built to understand numerical revenue drivers.	
+SQL acts as the single source of truth for business logic and KPIs.
 
-Key findings:
+A Bronze → Silver → Gold structure was used:
 
--  Order frequency, product variety, and order value were the strongest predictors.
-- Shipping reliability showed low direct revenue impact but high churn and risk segmentation value.
+- Bronze: Raw transactional data
 
+- Silver: Cleaned, standardised, business-ready tables
 
-📊 _Key Business Insights_
+- Gold: Aggregated KPI views and operational intelligence
 
--	A high-revenue customer segment was identified that is operationally at risk due to poor shipping         performance.
--	Logistics failures impact customer stability before impacting revenue.
--	Behavioural clustering helped separate growth customers from decline-risk customers.
--	Revenue is primarily driven by frequency and product diversity, not just order value.
+**Core SQL KPIs**
 
+- Total Revenue
 
-💼 _Business Insights_
+- Total Orders
 
-| Segment | Behaviour | Action |
-|---------|-----------|--------|
-| High Value + Low Reliability | At risk | Improve logistics |
-| High Value + High Reliability | Retain | Upsell |
-| Low Value + High Reliability | Growth potential | Targeted offers |
+- Revenue per Order
 
+- Gross Profit (Proxy)
 
+- Order Failure Rate
+
+- High-Risk Order Percentage
+
+- Revenue Concentration
+
+- Country & Month-based Logistics Status
+
+SQL answers:
+“What numbers are officially correct and reusable?”
+
+🟩 **_Power BI — Decision & Storytelling Layer_**
+
+Power BI dashboards were built on top of the SQL Gold layer to provide clear, executive-level visibility without exposing analytical complexity.
+
+Power BI answers:
+“So what should the business do?”
+
+📊 **_Power BI Dashboards_**
+Page 1️⃣ – **Executive Operations Overview**
+
+- Total Revenue & Orders
+
+- Revenue per Order
+
+- Failure Rate & High-Risk Order %
+
+- Overall operational health snapshot
+
+Page 2️⃣ – **_Country Risk Deep-Dive_**
+
+- Country-wise logistics risk
+
+- Failure and high-risk order patterns
+
+- Geographic exposure analysis
+
+Page 3️⃣ – Order Status & Backlog Monitoring
+
+Order status distribution
+
+Backlog and delay monitoring
+
+Early warning indicators for fulfilment issues
+
+Page 4️⃣ – Product / Revenue at Risk Analysis
+
+Revenue concentration
+
+Products contributing disproportionately to risk
+
+Identification of revenue exposed to logistics failures
+
+💡 Key Business Insights
+
+A small share of orders and products account for a disproportionate share of operational risk
+
+Logistics failures tend to impact customer stability before revenue declines
+
+Revenue is driven more by order frequency and product diversity than order value alone
+
+High-value customers with low shipping reliability represent critical retention risk
 
 ✅ Business Impact
 
--	Improved targeting for customer retention campaigns
--   Prioritised logistics audits for high-revenue risk customers
--	Data-backed upsell strategy for mid-tier customers
--	Executive-level visibility into revenue vs fulfilment trade-offs
+Targeted retention strategies for high-value, high-risk customers
+
+Prioritised logistics audits for revenue-critical regions
+
+Clear visibility into revenue vs fulfilment trade-offs
+
+Decision-ready insights without exposing technical complexity
+
+🛠️ Tech Stack
+
+SQL Server — Data modeling & KPI engine
+
+Python — Pandas, NumPy, Scikit-Learn (EDA, segmentation, validation)
+
+Power BI — Executive dashboards & operational monitoring
+
+Git & GitHub — Version control & portfolio presentation
 
 
-📈 Dashboards (Power BI)
-
-An executive-ready Power BI dashboard was built to visualise:
-
--	RFM customer distribution
--	Revenue by value tier
--	Shipping risk distribution
--	High-Value Fulfilment Risk customers
--	Behaviour-based customer clusters
-
+automobile-sales-logistics/
+│
+├── Python/        # EDA, segmentation, clustering, regression
+├── sql/           # Bronze → Silver → Gold KPI logic
+├── powerbi/       # Executive dashboards
+├── streamlit/     # (Optional) interactive app layer
+├── screenshots/   # Dashboard images
+└── README.md
 
 
-## _How to Run Locally_
-```
-- git clone <repo-url>
-- cd Automobile-Sales-Logistics
-- python -m venv venv
-- source venv/bin/activate # or venv\Scripts\activate
-- pip install -r requirements.txt
-- streamlit run app.py
+🧠 Final Note
 
-```
+This project demonstrates a full analyst workflow:
 
+From exploration → validation → production KPIs
 
-## 🛠 _Tech Stack_
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-Framework-red)
-![Pandas](https://img.shields.io/badge/Pandas-Data--Analysis-green)
-![Sklearn](https://img.shields.io/badge/Sklearn-ML-orange)
+From raw data → structured logic → executive decisions
 
+It reflects how analytics is applied in real organisations, not just how tools are used.
 
-
-## 📁 _Repository Structure_
-```
-project/
-│── Data/
-│── Notebooks/
-│── src/
-│   ├── charts.py
-│   ├── init.py
-│   ├── preprocessing.py
-|   └── utils.py
-│── .gitignore
-│── LICENSE
-│── README.md
-│── app.py
-│──requirements.txt
-
-```
-
----
-
-
-👤 Author
-
-**Hardeep Bamrah**  
-Aspiring Business Analyst | Marketing & Sales Analytics | UK-based Graduate
-
-## 📄 _License_
+📄 License
 
 MIT License
