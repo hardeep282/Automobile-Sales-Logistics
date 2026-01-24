@@ -101,6 +101,8 @@ Power BI answers:
 “So what should the business do?”
 
 📊 **_Power BI Dashboards_**
+
+
 Page 1️⃣ – **Executive Operations Overview**
 
 - Total Revenue & Orders
@@ -165,7 +167,7 @@ Power BI — Executive dashboards & operational monitoring
 
 Git & GitHub — Version control & portfolio presentation
 
-
+```
 automobile-sales-logistics/
 │
 ├── Python/        # EDA, segmentation, clustering, regression
@@ -174,6 +176,8 @@ automobile-sales-logistics/
 ├── streamlit/     # (Optional) interactive app layer
 ├── screenshots/   # Dashboard images
 └── README.md
+
+```
 
 
 🧠 Final Note
