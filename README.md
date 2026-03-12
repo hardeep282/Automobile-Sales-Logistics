@@ -1,4 +1,4 @@
-#**🚗 Automobile Sales & Logistics Analytics Platform**
+**🚗 Automobile Sales & Logistics Analytics Platform**
 
 **Author: Hardeep Bamrah**
 
@@ -7,6 +7,8 @@ Role Focus: Business Analyst | Commercial Analyst | BI Analyst
 Domain: Sales Performance • Logistics Risk • Customer Intelligence
 
 Tools: SQL • Python • Power BI
+
+
 
 📌## **Project Overview**
 
@@ -18,6 +20,7 @@ This project analyses automobile sales transactions to understand:
 - Operational reliability
 
 The objective is not just to calculate metrics, but to connect customer behaviour, fulfilment reliability, and revenue risk into a single analytical framework that supports operational and commercial decision-making.
+
 
 
 ## **Key Business Questions**
@@ -35,6 +38,8 @@ This project investigates business questions relevant to commercial and operatio
 - Which products contribute most to operational risk?
 
 
+
+
 📊## **Dashboard Preview**
 
 ### Power BI Executive Dashboard
@@ -50,6 +55,8 @@ This project investigates business questions relevant to commercial and operatio
 ![RFM Segmentation](screenshots/revenue_contribution_by_rfm_value.png)
 
 
+
+
 ##🎯 **Business Objectives**
 
 - Identify high-revenue customers and products exposed to logistics risk
@@ -62,6 +69,9 @@ This project investigates business questions relevant to commercial and operatio
 
 - Provide executive-ready dashboards backed by robust KPI logic
 
+
+
+
 📂## **Dataset Overview**
 
 The analysis is based on automobile sales transactions which were transformed into customer-level and order-level analytical datasets, containing:
@@ -73,6 +83,8 @@ The analysis is based on automobile sales transactions which were transformed in
 - Customer purchase behaviour (frequency, recency, value)
 
 - Product and country attributes
+
+
 
 🏗️## **Analytics Style**
 
@@ -99,6 +111,9 @@ Key work includes:
 Python answers:
 “What patterns exist, and which KPIs actually matter?”
 
+
+
+
 🟨## **SQL — Data Modeling & KPI Engine**
 
 SQL acts as the single source for business logic and KPIs.
@@ -110,6 +125,8 @@ A Bronze → Silver → Gold structure was used:
 - Silver: Cleaned, standardised, business-ready tables
 
 - Gold: Aggregated KPI views and operational intelligence
+
+
 
 **Core SQL KPIs**
 
@@ -132,12 +149,17 @@ A Bronze → Silver → Gold structure was used:
 SQL answers:
 “What numbers are officially correct and reusable?”
 
+
+
+
 🟩## **Power BI — Decision & Storytelling Layer**
 
 Power BI dashboards were built using SQL Gold layer to provide clear, executive-level visibility without exposing analytical complexity, to make it more understandable for non technical stakeholders.
 
 Power BI answers:
 “So what should the business do?”
+
+
 
 📊 **Power BI Dashboards**
 
@@ -176,6 +198,8 @@ Products contributing disproportionately to risk
 
 Identification of revenue exposed to logistics failures
 
+
+
 💡## **Key Business Insights**
 
 A small share of orders and products account for a disproportionate share of operational risk
@@ -185,6 +209,9 @@ Logistics failures tend to impact customer stability before revenue declines
 Revenue is driven more by order frequency and product diversity than order value alone
 
 High-value customers with low shipping reliability represent critical retention risk
+
+
+
 
 ✅## **Business Impact**
 
@@ -196,6 +223,8 @@ Clear visibility into revenue vs fulfilment trade-offs
 
 Decision-ready insights without exposing technical complexity
 
+
+
 🛠️## **Tech Stack**
 
 SQL Server — Data modeling & KPI engine
@@ -205,6 +234,8 @@ Python — Pandas, NumPy, Scikit-Learn (EDA, segmentation, validation)
 Power BI — Executive dashboards & operational monitoring
 
 Git & GitHub — Version control & portfolio presentation
+
+
 
 ```
 automobile-sales-logistics/
@@ -219,6 +250,8 @@ automobile-sales-logistics/
 ```
 
 
+
+
 ## **Skills Demonstrated**
 
 - Sales performance analysis  
@@ -231,6 +264,7 @@ automobile-sales-logistics/
 
 
 
+
 🧠## **Final Note**
 
 This project demonstrates a full analyst workflow:
@@ -240,6 +274,9 @@ From exploration → validation → production KPIs
 From raw data → structured logic → executive decisions
 
 It reflects how analytics is applied in real organisations, not just how tools are used.
+
+
+
 
 📄## **License**
 
