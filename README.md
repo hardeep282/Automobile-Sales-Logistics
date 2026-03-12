@@ -1,17 +1,56 @@
-#***🚗 Automobile Sales & Logistics Intelligence Platform***
+#**🚗 Automobile Sales & Logistics Analytics Platform**
 
-**_Author: Hardeep Bamrah_**
+**Author: Hardeep Bamrah**
 
-Role Focus: Business Analyst | Data Analyst | BI Analyst
+Role Focus: Business Analyst | Commercial Analyst | BI Analyst 
+
 Domain: Sales Performance • Logistics Risk • Customer Intelligence
 
-📌 **_Project Overview_**
+Tools: SQL • Python • Power BI
 
-This project delivers an end-to-end sales and logistics intelligence solution that combines customer value analysis, operational risk monitoring, and revenue performance using Python, SQL, and Power BI.
+📌## **Project Overview**
+
+This project analyses automobile sales transactions to understand:
+
+- Revenue performance
+- Customer value
+- Logistics risk
+- Operational reliability
 
 The objective is not just to calculate metrics, but to connect customer behaviour, fulfilment reliability, and revenue risk into a single analytical framework that supports operational and commercial decision-making.
 
-🎯 Business Objectives
+
+## **Key Business Questions**
+
+This project investigates business questions relevant to commercial and operational teams:
+
+- Which customers generate the highest revenue?
+
+- Which countries experience the highest logistics failure rates?  
+
+- How concentrated is revenue across products?  
+
+- Which high-value customers are exposed to shipping risk? 
+
+- Which products contribute most to operational risk?
+
+
+📊## **Dashboard Preview**
+
+### Power BI Executive Dashboard
+
+![Executive Dashboard](screenshots/powerbi_executive_dashboard.png)
+
+### Logistics Risk by Country
+
+![Country Risk](screenshots/Country_Risk_dashboard.png)
+
+### Python Analysis – Customer Segmentation
+
+![RFM Segmentation](screenshots/revenue_contribution_by_rfm_value.png)
+
+
+##🎯 **Business Objectives**
 
 - Identify high-revenue customers and products exposed to logistics risk
 
@@ -19,13 +58,13 @@ The objective is not just to calculate metrics, but to connect customer behaviou
 
 - Understand revenue concentration and risk exposure
 
-- Support retention, logistics optimisation, and revenue protection     decisions
+- Support retention, logistics optimisation, and revenue protection decisions
 
 - Provide executive-ready dashboards backed by robust KPI logic
 
-📂 **_Dataset Overview_**
+📂## **Dataset Overview**
 
-The analysis is based on historical automobile sales transactions and was transformed into customer- and order-level analytical datasets, containing:
+The analysis is based on automobile sales transactions which were transformed into customer-level and order-level analytical datasets, containing:
 
 - Order dates, status, and fulfilment outcomes
 
@@ -35,13 +74,13 @@ The analysis is based on historical automobile sales transactions and was transf
 
 - Product and country attributes
 
-🏗️ **_Analytics Style_**
+🏗️## **Analytics Style**
 
 The solution follows a layered analytics approach, mirroring real-world data workflows.
 
-🟦 **_Python — Exploratory & Advanced Analytics Layer_**
+🟦 **Python — Exploratory & Advanced Analytics Layer**
 
-Used for exploration, validation, and behavioural intelligence before productionising KPIs.
+Used for exploration, validation, and behavioural intelligence before finalising KPIs.
 
 Key work includes:
 
@@ -60,9 +99,9 @@ Key work includes:
 Python answers:
 “What patterns exist, and which KPIs actually matter?”
 
-🟨 **_SQL — Data Modeling & KPI Engine_**
+🟨## **SQL — Data Modeling & KPI Engine**
 
-SQL acts as the single source of truth for business logic and KPIs.
+SQL acts as the single source for business logic and KPIs.
 
 A Bronze → Silver → Gold structure was used:
 
@@ -80,7 +119,7 @@ A Bronze → Silver → Gold structure was used:
 
 - Revenue per Order
 
-- Gross Profit (Proxy)
+- Gross Profit (Proxy) 
 
 - Order Failure Rate
 
@@ -93,14 +132,14 @@ A Bronze → Silver → Gold structure was used:
 SQL answers:
 “What numbers are officially correct and reusable?”
 
-🟩 **_Power BI — Decision & Storytelling Layer_**
+🟩## **Power BI — Decision & Storytelling Layer**
 
-Power BI dashboards were built on top of the SQL Gold layer to provide clear, executive-level visibility without exposing analytical complexity.
+Power BI dashboards were built using SQL Gold layer to provide clear, executive-level visibility without exposing analytical complexity, to make it more understandable for non technical stakeholders.
 
 Power BI answers:
 “So what should the business do?”
 
-📊 **_Power BI Dashboards_**
+📊 **Power BI Dashboards**
 
 
 Page 1️⃣ – **Executive Operations Overview**
@@ -113,7 +152,7 @@ Page 1️⃣ – **Executive Operations Overview**
 
 - Overall operational health snapshot
 
-Page 2️⃣ – **_Country Risk Deep-Dive_**
+Page 2️⃣ – **Country Risk Deep-Dive**
 
 - Country-wise logistics risk
 
@@ -121,7 +160,7 @@ Page 2️⃣ – **_Country Risk Deep-Dive_**
 
 - Geographic exposure analysis
 
-Page 3️⃣ – Order Status & Backlog Monitoring
+Page 3️⃣ – **Order Status & Backlog Monitoring**
 
 Order status distribution
 
@@ -129,7 +168,7 @@ Backlog and delay monitoring
 
 Early warning indicators for fulfilment issues
 
-Page 4️⃣ – Product / Revenue at Risk Analysis
+Page 4️⃣ – **Product / Revenue at Risk Analysis**
 
 Revenue concentration
 
@@ -137,7 +176,7 @@ Products contributing disproportionately to risk
 
 Identification of revenue exposed to logistics failures
 
-💡 Key Business Insights
+💡## **Key Business Insights**
 
 A small share of orders and products account for a disproportionate share of operational risk
 
@@ -147,17 +186,17 @@ Revenue is driven more by order frequency and product diversity than order value
 
 High-value customers with low shipping reliability represent critical retention risk
 
-✅ Business Impact
+✅## **Business Impact**
 
 Targeted retention strategies for high-value, high-risk customers
 
-Prioritised logistics audits for revenue-critical regions
+Prioritised logistics checks for revenue-critical regions
 
 Clear visibility into revenue vs fulfilment trade-offs
 
 Decision-ready insights without exposing technical complexity
 
-🛠️ Tech Stack
+🛠️## **Tech Stack**
 
 SQL Server — Data modeling & KPI engine
 
@@ -180,7 +219,19 @@ automobile-sales-logistics/
 ```
 
 
-🧠 Final Note
+## **Skills Demonstrated**
+
+- Sales performance analysis  
+- Customer segmentation (RFM)  
+- Logistics risk analysis  
+- Revenue concentration analysis  
+- SQL data modelling (Bronze → Silver → Gold architecture)  
+- Python exploratory analytics and clustering  
+- Executive dashboard development in Power BI
+
+
+
+🧠## **Final Note**
 
 This project demonstrates a full analyst workflow:
 
@@ -190,6 +241,6 @@ From raw data → structured logic → executive decisions
 
 It reflects how analytics is applied in real organisations, not just how tools are used.
 
-📄 License
+📄## **License**
 
 MIT License
