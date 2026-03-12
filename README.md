@@ -1,4 +1,7 @@
-**🚗 Automobile Sales & Logistics Analytics Platform**
+# **🚗 Automobile Sales & Logistics Analytics Platform**
+
+
+
 
 **Author: Hardeep Bamrah**
 
@@ -10,7 +13,12 @@ Tools: SQL • Python • Power BI
 
 
 
-📌## **Project Overview**
+
+
+
+
+
+## 📌**Project Overview**
 
 This project analyses automobile sales transactions to understand:
 
@@ -20,6 +28,10 @@ This project analyses automobile sales transactions to understand:
 - Operational reliability
 
 The objective is not just to calculate metrics, but to connect customer behaviour, fulfilment reliability, and revenue risk into a single analytical framework that supports operational and commercial decision-making.
+
+
+
+
 
 
 
@@ -40,7 +52,10 @@ This project investigates business questions relevant to commercial and operatio
 
 
 
-📊## **Dashboard Preview**
+
+
+
+## 📊**Dashboard Preview**
 
 ### Power BI Executive Dashboard
 
@@ -52,12 +67,15 @@ This project investigates business questions relevant to commercial and operatio
 
 ### Python Analysis – Customer Segmentation
 
-![RFM Segmentation](screenshots/revenue_contribution_by_rfm_value.png)
+![RFM Segmentation](screenshots/rfm_revenue_contribution.png)
 
 
 
 
-##🎯 **Business Objectives**
+
+
+
+## 🎯 **Business Objectives**
 
 - Identify high-revenue customers and products exposed to logistics risk
 
@@ -72,7 +90,7 @@ This project investigates business questions relevant to commercial and operatio
 
 
 
-📂## **Dataset Overview**
+## 📂**Dataset Overview**
 
 The analysis is based on automobile sales transactions which were transformed into customer-level and order-level analytical datasets, containing:
 
@@ -86,7 +104,12 @@ The analysis is based on automobile sales transactions which were transformed in
 
 
 
-🏗️## **Analytics Style**
+
+
+
+
+
+## 🏗️**Analytics Style**
 
 The solution follows a layered analytics approach, mirroring real-world data workflows.
 
@@ -114,7 +137,10 @@ Python answers:
 
 
 
-🟨## **SQL — Data Modeling & KPI Engine**
+
+
+
+## 🟨**SQL — Data Modeling & KPI Engine**
 
 SQL acts as the single source for business logic and KPIs.
 
@@ -125,6 +151,9 @@ A Bronze → Silver → Gold structure was used:
 - Silver: Cleaned, standardised, business-ready tables
 
 - Gold: Aggregated KPI views and operational intelligence
+
+
+
 
 
 
@@ -152,7 +181,10 @@ SQL answers:
 
 
 
-🟩## **Power BI — Decision & Storytelling Layer**
+
+
+
+## 🟩**Power BI — Decision & Storytelling Layer**
 
 Power BI dashboards were built using SQL Gold layer to provide clear, executive-level visibility without exposing analytical complexity, to make it more understandable for non technical stakeholders.
 
@@ -161,7 +193,13 @@ Power BI answers:
 
 
 
-📊 **Power BI Dashboards**
+
+
+
+
+
+
+## 📊 **Power BI Dashboards**
 
 
 Page 1️⃣ – **Executive Operations Overview**
@@ -200,6 +238,10 @@ Identification of revenue exposed to logistics failures
 
 
 
+
+
+
+
 💡## **Key Business Insights**
 
 A small share of orders and products account for a disproportionate share of operational risk
@@ -209,6 +251,10 @@ Logistics failures tend to impact customer stability before revenue declines
 Revenue is driven more by order frequency and product diversity than order value alone
 
 High-value customers with low shipping reliability represent critical retention risk
+
+
+
+
 
 
 
@@ -225,6 +271,11 @@ Decision-ready insights without exposing technical complexity
 
 
 
+
+
+
+
+
 🛠️## **Tech Stack**
 
 SQL Server — Data modeling & KPI engine
@@ -234,6 +285,11 @@ Python — Pandas, NumPy, Scikit-Learn (EDA, segmentation, validation)
 Power BI — Executive dashboards & operational monitoring
 
 Git & GitHub — Version control & portfolio presentation
+
+
+
+
+
 
 
 
@@ -252,6 +308,9 @@ automobile-sales-logistics/
 
 
 
+
+
+
 ## **Skills Demonstrated**
 
 - Sales performance analysis  
@@ -265,7 +324,11 @@ automobile-sales-logistics/
 
 
 
-🧠## **Final Note**
+
+
+
+
+## 🧠**Final Note**
 
 This project demonstrates a full analyst workflow:
 
@@ -278,6 +341,10 @@ It reflects how analytics is applied in real organisations, not just how tools a
 
 
 
-📄## **License**
+
+
+
+
+## 📄**License**
 
 MIT License
