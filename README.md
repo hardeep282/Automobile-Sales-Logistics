@@ -9,9 +9,7 @@ Role Focus: Business Analyst | Commercial Analyst | BI Analyst
 
 Domain: Sales Performance • Logistics Risk • Customer Intelligence
 
-Tools: SQL • Python • Power BI
-
-
+Tools: SQL • Python • Power BI  
 
 
 
@@ -27,7 +25,7 @@ This project analyses automobile sales transactions to understand:
 - Logistics risk
 - Operational reliability
 
-The objective is not just to calculate metrics, but to connect customer behaviour, fulfilment reliability, and revenue risk into a single analytical framework that supports operational and commercial decision-making.
+The objective is not just to calculate metrics, but to connect customer behaviour, fulfilment reliability, and revenue risk into a single analytical framework that supports operational and commercial decision-making.    
 
 
 
@@ -47,7 +45,7 @@ This project investigates business questions relevant to commercial and operatio
 
 - Which high-value customers are exposed to shipping risk? 
 
-- Which products contribute most to operational risk?
+- Which products contribute most to operational risk?   
 
 
 
@@ -67,7 +65,7 @@ This project investigates business questions relevant to commercial and operatio
 
 ### Python Analysis – Customer Segmentation
 
-![RFM Segmentation](screenshots/rfm_revenue_contribution.png)
+![RFM Segmentation](screenshots/rfm_revenue_contribution.png)   
 
 
 
@@ -85,7 +83,7 @@ This project investigates business questions relevant to commercial and operatio
 
 - Support retention, logistics optimisation, and revenue protection decisions
 
-- Provide executive-ready dashboards backed by robust KPI logic
+- Provide executive-ready dashboards backed by robust KPI logic   
 
 
 
@@ -100,7 +98,7 @@ The analysis is based on automobile sales transactions which were transformed in
 
 - Customer purchase behaviour (frequency, recency, value)
 
-- Product and country attributes
+- Product and country attributes   
 
 
 
@@ -132,7 +130,7 @@ Key work includes:
 - Regression analysis to understand revenue drivers
 
 Python answers:
-“What patterns exist, and which KPIs actually matter?”
+“What patterns exist, and which KPIs actually matter?”   
 
 
 
@@ -150,7 +148,7 @@ A Bronze → Silver → Gold structure was used:
 
 - Silver: Cleaned, standardised, business-ready tables
 
-- Gold: Aggregated KPI views and operational intelligence
+- Gold: Aggregated KPI views and operational intelligence   
 
 
 
@@ -176,7 +174,7 @@ A Bronze → Silver → Gold structure was used:
 - Country & Month-based Logistics Status
 
 SQL answers:
-“What numbers are officially correct and reusable?”
+“What numbers are officially correct and reusable?”   
 
 
 
@@ -189,7 +187,7 @@ SQL answers:
 Power BI dashboards were built using SQL Gold layer to provide clear, executive-level visibility without exposing analytical complexity, to make it more understandable for non technical stakeholders.
 
 Power BI answers:
-“So what should the business do?”
+“So what should the business do?”   
 
 
 
@@ -234,7 +232,7 @@ Revenue concentration
 
 Products contributing disproportionately to risk
 
-Identification of revenue exposed to logistics failures
+Identification of revenue exposed to logistics failures    
 
 
 
@@ -242,7 +240,7 @@ Identification of revenue exposed to logistics failures
 
 
 
-💡## **Key Business Insights**
+## 💡**Key Business Insights**
 
 A small share of orders and products account for a disproportionate share of operational risk
 
@@ -250,7 +248,7 @@ Logistics failures tend to impact customer stability before revenue declines
 
 Revenue is driven more by order frequency and product diversity than order value alone
 
-High-value customers with low shipping reliability represent critical retention risk
+High-value customers with low shipping reliability represent critical retention risk   
 
 
 
@@ -259,7 +257,7 @@ High-value customers with low shipping reliability represent critical retention 
 
 
 
-✅## **Business Impact**
+## ✅**Business Impact**
 
 Targeted retention strategies for high-value, high-risk customers
 
@@ -267,7 +265,7 @@ Prioritised logistics checks for revenue-critical regions
 
 Clear visibility into revenue vs fulfilment trade-offs
 
-Decision-ready insights without exposing technical complexity
+Decision-ready insights without exposing technical complexity   
 
 
 
@@ -276,7 +274,7 @@ Decision-ready insights without exposing technical complexity
 
 
 
-🛠️## **Tech Stack**
+## 🛠️**Tech Stack**
 
 SQL Server — Data modeling & KPI engine
 
@@ -284,7 +282,7 @@ Python — Pandas, NumPy, Scikit-Learn (EDA, segmentation, validation)
 
 Power BI — Executive dashboards & operational monitoring
 
-Git & GitHub — Version control & portfolio presentation
+Git & GitHub — Version control & portfolio presentation    
 
 
 
@@ -304,8 +302,7 @@ automobile-sales-logistics/
 └── README.md
 
 ```
-
-
+   
 
 
 
@@ -319,7 +316,7 @@ automobile-sales-logistics/
 - Revenue concentration analysis  
 - SQL data modelling (Bronze → Silver → Gold architecture)  
 - Python exploratory analytics and clustering  
-- Executive dashboard development in Power BI
+- Executive dashboard development in Power BI    
 
 
 
@@ -336,10 +333,7 @@ From exploration → validation → production KPIs
 
 From raw data → structured logic → executive decisions
 
-It reflects how analytics is applied in real organisations, not just how tools are used.
-
-
-
+It reflects how analytics is applied in real organisations, not just how tools are used.   
 
 
 
