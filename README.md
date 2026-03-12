@@ -1,9 +1,9 @@
 # **🚗 Automobile Sales & Logistics Analytics Platform**
 
 
+---
 
-
-**Author: Hardeep Bamrah**
+**Author: Hardeep Bamrah**  
 
 Role Focus: Business Analyst | Commercial Analyst | BI Analyst 
 
@@ -12,11 +12,11 @@ Domain: Sales Performance • Logistics Risk • Customer Intelligence
 Tools: SQL • Python • Power BI  
 
 
+---
 
 
 
-
-## 📌**Project Overview**
+## 📌 **Project Overview**
 
 This project analyses automobile sales transactions to understand:
 
@@ -29,7 +29,7 @@ The objective is not just to calculate metrics, but to connect customer behaviou
 
 
 
-
+---
 
 
 
@@ -49,11 +49,11 @@ This project investigates business questions relevant to commercial and operatio
 
 
 
+---
 
 
 
-
-## 📊**Dashboard Preview**
+## 📊 **Dashboard Preview**
 
 ### Power BI Executive Dashboard
 
@@ -69,7 +69,7 @@ This project investigates business questions relevant to commercial and operatio
 
 
 
-
+---
 
 
 
@@ -85,10 +85,10 @@ This project investigates business questions relevant to commercial and operatio
 
 - Provide executive-ready dashboards backed by robust KPI logic   
 
+---
 
 
-
-## 📂**Dataset Overview**
+## 📂 **Dataset Overview**
 
 The analysis is based on automobile sales transactions which were transformed into customer-level and order-level analytical datasets, containing:
 
@@ -102,12 +102,12 @@ The analysis is based on automobile sales transactions which were transformed in
 
 
 
+---
 
 
 
 
-
-## 🏗️**Analytics Style**
+## 🏗️ **Analytics Style**
 
 The solution follows a layered analytics approach, mirroring real-world data workflows.
 
@@ -134,11 +134,11 @@ Python answers:
 
 
 
+---
 
 
 
-
-## 🟨**SQL — Data Modeling & KPI Engine**
+## 🟨 **SQL — Data Modeling & KPI Engine**
 
 SQL acts as the single source for business logic and KPIs.
 
@@ -151,7 +151,7 @@ A Bronze → Silver → Gold structure was used:
 - Gold: Aggregated KPI views and operational intelligence   
 
 
-
+---
 
 
 
@@ -178,11 +178,11 @@ SQL answers:
 
 
 
+---
 
 
 
-
-## 🟩**Power BI — Decision & Storytelling Layer**
+## 🟩 **Power BI — Decision & Storytelling Layer**
 
 Power BI dashboards were built using SQL Gold layer to provide clear, executive-level visibility without exposing analytical complexity, to make it more understandable for non technical stakeholders.
 
@@ -192,7 +192,7 @@ Power BI answers:
 
 
 
-
+---
 
 
 
@@ -235,12 +235,12 @@ Products contributing disproportionately to risk
 Identification of revenue exposed to logistics failures    
 
 
+---
 
 
 
 
-
-## 💡**Key Business Insights**
+## 💡 **Key Business Insights**
 
 A small share of orders and products account for a disproportionate share of operational risk
 
@@ -252,12 +252,12 @@ High-value customers with low shipping reliability represent critical retention 
 
 
 
+---
 
 
 
 
-
-## ✅**Business Impact**
+## ✅ **Business Impact**
 
 Targeted retention strategies for high-value, high-risk customers
 
@@ -271,10 +271,10 @@ Decision-ready insights without exposing technical complexity
 
 
 
+---
 
 
-
-## 🛠️**Tech Stack**
+## 🛠️ **Tech Stack**
 
 SQL Server — Data modeling & KPI engine
 
@@ -287,7 +287,7 @@ Git & GitHub — Version control & portfolio presentation
 
 
 
-
+---
 
 
 
@@ -303,7 +303,7 @@ automobile-sales-logistics/
 
 ```
    
-
+---
 
 
 
@@ -320,12 +320,12 @@ automobile-sales-logistics/
 
 
 
+---
 
 
 
 
-
-## 🧠**Final Note**
+## 🧠 **Final Note**
 
 This project demonstrates a full analyst workflow:
 
@@ -336,9 +336,9 @@ From raw data → structured logic → executive decisions
 It reflects how analytics is applied in real organisations, not just how tools are used.   
 
 
+---
 
 
-
-## 📄**License**
+## 📄 **License**
 
 MIT License
