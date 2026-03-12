@@ -48,7 +48,7 @@ This project investigates business questions relevant to commercial and operatio
 
 ### Logistics Risk by Country
 
-![Country Risk](screenshots/Country_Risk_dashboard.png)
+![Country Risk](screenshots/country_risk_dashboard.png)
 
 ### Python Analysis – Customer Segmentation
 
