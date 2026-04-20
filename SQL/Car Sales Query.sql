@@ -1,4 +1,17 @@
 
+---- ==================================================
+-- Automobile Sales Analytics 
+-- Hardeep Bamrah
+-- ====================================================
+
+
+------------------------------------------------------
+-- 1. Raw Data Exploration
+-- Purpose: Inspect the base automobile sales dataset
+------------------------------------------------------
+
+
+
 
 USE autosales_DB;
 GO
@@ -66,6 +79,14 @@ FROM dbo.bronze_autosales;
 
 
 
+------------------------------------------------------
+-- 2. Silver Layer
+-- Purpose: Clean and prepare the dataset for analysis
+------------------------------------------------------
+
+-- Silver Table Autosales
+
+
 
 -- Drop view if exists 
 IF OBJECT_ID('dbo.silver_auto_sales', 'V') IS NOT NULL
@@ -118,6 +139,8 @@ FROM dbo.bronze_autosales;
 GO
 
 
+
+
 SELECT  *
 FROM dbo.silver_auto_sales;
 
@@ -140,6 +163,13 @@ SELECT
 FROM dbo.silver_auto_sales;
 
 
+
+------------------------------------------------------
+-- 3. Gold Layer
+-- Purpose: Create analytical tables used for reporting
+------------------------------------------------------
+
+-- Gold Table Autosales
 
 
 
@@ -322,6 +352,15 @@ ORDER BY productline, order_month;
 
 
 
+------------------------------------------------------
+-- 4. KPI Calculations
+-- Purpose: Calculate business performance metrics
+------------------------------------------------------
+
+-- KPI List
+
+
+
 
 --- KPI 1  Total Revenue, Total Orders, Revenue per Order
 SELECT 
@@ -473,6 +512,16 @@ GROUP BY productline
 ORDER BY avg_mom_growth_pct DESC;
 
 
+
+
+
+
+------------------------------------------------------
+-- 5. Logistics KPI Analysis
+-- Purpose: Monitor fulfilment reliability and risk
+------------------------------------------------------
+
+-- Logistics KPIs
 
 
 
@@ -690,10 +739,10 @@ GO
 SELECT * FROM dbo.gold_ops_productline_month;
 
 
--- //## After carefully analysing it was also found that one order has multiple productlines,
+-- // After carefully analysing it was also found that one order has multiple productlines,
 -- so it was necessary to claculate productline in every ordernu,ber and then calculate,
 -- accordingly, to avoid multiple addition of order revenue.
--- Below is the table which was duplicating total revenue.##//
+-- Below is the table which was duplicating total revenue //
 
 
 
@@ -796,3 +845,15 @@ WHERE productline IS NOT NULL;
 GO
 
 SELECT * FROM dbo.dim_productline;
+
+
+
+
+
+
+
+
+
+
+
+
