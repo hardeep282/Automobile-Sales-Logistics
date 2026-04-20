@@ -225,7 +225,7 @@ automobile-sales-logistics/
 ├── Data/                # Source or prepared datasets
 ├── python/              # EDA, segmentation, clustering, regression
 ├── sql/                 # Bronze → Silver → Gold SQL logic
-├── powerbi/             # Power BI report files
+├── PowerBI/             # Power BI report files
 ├── streamlit/           # Optional app layer
 ├── screenshots/         # Dashboard preview images
 ├── app.py               # Streamlit entry point
