@@ -1,3 +1,5 @@
+
+
 # 🚗 Automobile Sales & Logistics Analytics Platform
 
 **Author:** Hardeep Bamrah  
@@ -9,197 +11,302 @@
 
 ## Executive Summary
 
-This project was built to show how revenue reporting becomes more valuable when it is connected to operational reliability.
+This project combines sales analytics, logistics risk monitoring, customer segmentation, and revenue driver analysis into a single end-to-end analytics workflow.
 
-Instead of treating sales and logistics as separate reporting streams, the dashboard combines both to answer three practical business questions:
-- **Where is revenue being generated?**
-- **Where is revenue operationally exposed?**
-- **What is driving that exposure by country, status, and product line?**
+Instead of reporting revenue in isolation, the project shows how operational reliability, order failures, backlog behaviour, product-line exposure, and customer behaviour affect commercial performance.
 
-The result is an analytics workflow that moves from raw transactions to KPI-ready SQL models and finally to Power BI dashboards designed for executive monitoring and risk-based decision-making.
+The solution was built using:
+- **SQL Server** for Bronze → Silver → Gold modelling
+- **Python** for RFM segmentation, clustering, regression, and visual analysis
+- **Power BI** for executive dashboards and operational reporting
 
 ---
 
-## What The Dashboard Shows
+## Business Objective
 
-The dashboard is structured around four business views:
+The project was designed to answer practical commercial and operational questions such as:
+
+- Which countries generate the most revenue?
+- Which markets are operationally risky despite strong revenue?
+- How much revenue is exposed to failures or stuck orders?
+- Which product lines combine high revenue with high risk?
+- Which customer segments drive the most value?
+- What factors are most strongly associated with revenue growth?
+
+---
+
+## Headline Results
+
+### Power BI Executive KPIs
+- **Total Orders:** 298
+- **Total Revenue:** 9.76M
+- **Shipping Reliability:** 94.30%
+- **Failure Rate:** 2.35%
+- **Revenue at Risk:** 590.41K
+
+These KPIs show that the business is operationally stable overall, but still carries a measurable level of revenue exposure linked to fulfilment and order-risk conditions.
+
+---
+
+## Country-Level Risk Insights
+
+The dashboard compares revenue, operational quality, and exposure by country.
+
+### Key findings
+- **USA** is the largest market:
+  - **103 orders**
+  - **3,355,575.69 revenue**
+  - **94.17% shipping reliability**
+  - **0.97% failure rate**
+- **France** and **Spain** are also major contributors:
+  - France: **1,110,916.52 revenue**
+  - Spain: **1,215,686.92 revenue**
+- **Sweden** stands out as the highest-risk market:
+  - **14.29% failure rate**
+  - highest visible revenue-at-risk concentration in the dashboard
+- Other countries with notable operational exposure include:
+  - **Denmark**
+  - **UK**
+  - **Spain**
+  - **Australia**
+  - **Belgium**
+
+### Why it matters
+This view helps identify markets where commercial scale and operational fragility overlap.  
+That makes it easier to prioritise intervention where revenue is most exposed.
+
+---
+
+## Product / Revenue at Risk Insights
+
+The project also breaks risk down at product-line level using revenue allocation logic.
+
+### Headline metrics
+- **Allocated Revenue:** 9.76M
+- **Allocated Revenue at Risk %:** 6.05%
+- **Product Orders:** 298
+
+### Key findings
+- **Ships** show the highest operational exposure by product-line risk percentage
+- **Vintage Cars** and **Planes** also show elevated revenue-risk patterns
+- **Classic Cars** contribute the highest allocated revenue, at roughly **3.6M+**
+- **Vintage Cars** contribute around **2.1M**
+- The highest-revenue product line is not necessarily the highest-risk one
+
+### Why it matters
+This allows decision-makers to distinguish between:
+- categories that are commercially important
+- categories that are operationally vulnerable
+
+That makes prioritisation more intelligent than simple revenue ranking.
+
+---
+
+## Customer Segmentation Insights
+
+Python was used to build customer value and behaviour segments.
+
+### RFM Value Tier split
+- **Mid Value:** 57.3%
+- **High Value:** 30.3%
+- **Low Value:** 12.4%
+
+### Revenue contribution by segment
+- **Mid Value customers:** 6,417,403
+- **High Value customers:** 1,682,711
+- **Low Value customers:** 1,660,107
+
+### Business meaning
+Mid Value customers are the largest group and also the strongest revenue engine.  
+This suggests that retention, service quality, and upsell strategies targeted at this group could have the biggest commercial payoff.
+
+---
+
+## Shipping Reliability Segmentation
+
+Customers were also segmented by fulfilment quality.
+
+### Distribution
+- **Reliable:** 82.0%
+- **Critical:** 10.1%
+- **Unreliable:** 6.7%
+- **Minor Issues:** 1.1%
+
+### Business meaning
+Most customers experience reliable fulfilment, but a meaningful minority falls into risky service buckets.  
+This highlights where operational issues may affect customer experience and future commercial performance.
+
+---
+
+## K-Means Business Clusters
+
+Behaviour-based clustering identified four customer groups:
+
+- **VIP High Spenders:** 69.7%
+- **Frequent Small Buyers:** 15.7%
+- **Shipping Risk Buyers:** 12.4%
+- **Dormant / At Risk:** 2.2%
+
+### Business meaning
+These clusters support different commercial actions:
+- retain and protect VIP spenders
+- grow frequent small buyers
+- address service issues for shipping-risk buyers
+- reactivate dormant accounts selectively
+
+---
+
+## Revenue Driver Analysis
+
+A regression model was used to estimate which factors are most strongly associated with revenue.
+
+### Model performance
+- **R² Score:** 0.971
+- **RMSE:** 23,200.08
+
+### Strongest drivers
+- **frequency_orders:** 23,686.03
+- **n_unique_products:** 3,267.27
+- **shipping_reliability:** 2,981.41
+- **recency_days:** 66.61
+- **avg_totalmsrp:** 15.54
+
+### Business meaning
+The strongest revenue signal comes from **repeat order behaviour**, followed by **product breadth** and **shipping reliability**.
+
+This is one of the most important findings in the project:
+**shipping reliability is not only an operations metric — it also has commercial relevance.**
+
+---
+
+## SQL Data Modelling
+
+The SQL layer was built using a **Bronze → Silver → Gold** framework.
+
+### Bronze
+Raw source ingestion.
+
+### Silver
+Cleaning and standardisation, including:
+- date conversion
+- text standardisation
+- derived month fields
+- discount percentage
+- profit proxy
+
+### Gold
+Business-ready views for:
+- order performance
+- monthly revenue
+- country operational KPIs
+- product-line operational KPIs
+- revenue-at-risk analysis
+
+### Important modelling logic
+Statuses such as:
+- SHIPPED
+- ON HOLD
+- IN PROCESS
+- CANCELLED
+- DISPUTED
+
+were transformed into business flags such as:
+- **Failure Flag**
+- **High-Risk Flag**
+- **Stuck Flag**
+
+This allowed the project to quantify:
+- failure rate
+- stuck order rate
+- high-risk order share
+- revenue at risk
+
+### Revenue allocation logic
+A bridge table with allocation weights was used to distribute order revenue across multiple product lines and avoid double counting.
+
+That makes the product-line analysis much more reliable.
+
+---
+
+## Power BI Dashboard Structure
+
+The Power BI report is organised into four pages:
 
 ### 1. Operations Overview
-This page gives leadership an immediate view of commercial performance and operating health.
-
-It brings together:
-- **Total Orders**
-- **Total Revenue**
-- **Shipping Reliability %**
-- **Failure %**
-- **Revenue at Risk**
-- monthly trends for reliability and failure
-- country comparison for Revenue at Risk %
-
-**Business value:** this page helps answer whether revenue growth is being supported by reliable fulfilment or being undermined by failures, delays, and operational exposure.
-
-### 2. Country Risk
-This page compares countries using both scale and risk.
-
-It includes:
-- country-level order volume
-- country-level revenue
+Tracks:
+- Total Orders
+- Total Revenue
 - Shipping Reliability %
 - Failure %
-- Stuck %
-- Revenue at Risk %
-- a scatter analysis mapping **Failure % vs Revenue at Risk %**, sized by **Total Orders**
+- Revenue at Risk
+- monthly KPI trends
 
-**Business value:** this makes it easier to identify which countries are not only large in revenue terms, but also vulnerable from an operations perspective.
+### 2. Country Risk
+Tracks:
+- order volume by country
+- revenue by country
+- failure %
+- stuck %
+- revenue-at-risk %
 
-### 3. Order Status
-This page focuses on execution quality over time.
-
-It includes:
-- order status distribution by country
-- backlog orders trend over time
-- time and country filters
-
-**Business value:** this helps detect whether unresolved or delayed orders are building up before they create a visible revenue problem.
+### 3. Order Status Monitoring
+Tracks:
+- backlog trend
+- order status distribution
+- fulfilment behaviour over time
 
 ### 4. Product / Revenue at Risk
-This page breaks risk down to product line level.
-
-It includes:
-- Product Orders
-- Allocated Revenue
-- Allocated Revenue at Risk %
-- Product High Risk % by product line
-- Allocated Revenue at Risk % by product line
-- Allocated Revenue by product line
-
-**Business value:** this helps prioritise product lines that combine commercial importance with higher operational exposure.
-
----
-
-## Key Reporting Logic
-
-The dashboard is not built on isolated visuals. It is driven by reusable KPI logic modelled upstream in SQL and exposed through Power BI measures.
-
-Key metrics used across the report include:
-- **Total Orders**
-- **Total Revenue**
-- **Shipping Reliability %**
-- **Failure %**
-- **Stuck %**
-- **Revenue at Risk**
-- **Revenue at Risk %**
-- **Backlog Orders**
-- **Allocated Revenue**
-- **Allocated Revenue at Risk %**
-
-This structure allows the report to move from high-level monitoring to root-cause exploration across country, order status, and product line dimensions.
-
----
-
-## What Caused What In This Project
-
-The project was designed to make cause-and-effect style analysis easier for decision-makers.
-
-Examples of the reporting logic include:
-- higher **Failure %** contributes to higher **Revenue at Risk %**
-- unresolved operational states increase **Backlog Orders** and can signal fulfilment pressure
-- countries with high order volumes and weak reliability are more likely to create larger revenue exposure
-- product lines with high allocated revenue and high risk percentages deserve greater operational attention
-
-This means the report does more than show performance. It helps explain **why certain parts of the business are more exposed than others**.
-
----
-
-## Why This Matters For A Business
-
-A revenue dashboard on its own can hide operational problems.
-A logistics dashboard on its own can miss commercial importance.
-
-This project combines both views so teams can:
-- spot where commercial performance is vulnerable to fulfilment issues
-- prioritise countries where both scale and risk are high
-- monitor backlog behaviour before it becomes a larger service problem
-- identify product lines where operational issues are putting meaningful revenue at risk
+Tracks:
+- product-line risk %
+- allocated revenue
+- allocated revenue at risk
+- product-level exposure analysis
 
 ---
 
 ## Dashboard Preview
 
 ### Operations Overview
-![Executive Dashboard](screenshots/powerbi_executive_dashboard.png)
+![Operations Overview](screenshots/powerbi_executive_dashboard.png)
 
-### Country Risk View
+### Country Risk
 ![Country Risk](screenshots/country_risk_dashboard.png)
 
-### Python Customer Analysis
-![RFM Segmentation](screenshots/rfm_revenue_contribution.png)
+### Order Status
+![Order Status](screenshots/Order_Status.png)
 
----
+### Product / Revenue at Risk
+![Product Revenue Risk](screenshots/Product_Revenue_Risk.png)
 
-## Architecture
+### RFM Value Tier Distribution
+![RFM Value Tier](screenshots/Customer Distribution by RFM Value Tier.png)
 
-```text
-Raw Transaction Data
-        ↓
-Bronze Layer (raw structured tables)
-        ↓
-Silver Layer (cleaned and standardised data)
-        ↓
-Gold Layer (order, country, and product-line KPI views)
-        ↓
-Power BI Dashboard Layer
-        ↓
-Business Monitoring and Risk Prioritisation
-```
+### Revenue Contribution by Value Tier
+![Revenue Contribution](screenshots/Revenue Contribution by RFM Value Tier.png)
+
+### Shipping Reliability Segmentation
+![Shipping Reliability](screenshots/Customer distribution by Shipping Reliability.png)
+
+### K-Means Business Clusters
+![KMeans Cluster](screenshots/Customer Distribution by K-Means Business Clusters.png)
+
+### Revenue Drivers
+![Revenue Drivers](screenshots/Revenue Drivers.png)
 
 ---
 
 ## Repository Structure
 
 ```text
-automobile-sales-logistics/
+Automobile-Sales-Logistics/
 │
-├── Data/                # Source or prepared datasets
-├── python/              # EDA, segmentation, clustering, validation
-├── SQL/                 # Bronze → Silver → Gold SQL modelling logic
-├── PowerBI/             # Power BI dashboard file and notes
-├── streamlit/           # Optional app layer
-├── screenshots/         # Dashboard preview images
-├── app.py               # Streamlit entry point
-├── requirements.txt     # Project dependencies
+├── Data/
+├── python/
+│   └── Notebooks/
+├── SQL/
+├── PowerBI/
+├── screenshots/
+├── streamlit/
+├── app.py
+├── requirements.txt
 └── README.md
-```
-
----
-
-## Tech Stack
-
-- **SQL Server** — cleaning, modelling, KPI layer
-- **Python** — customer and behavioural analysis
-- **Power BI** — executive dashboarding and business reporting
-- **GitHub** — project versioning and presentation
-
----
-
-## How To Review This Project
-
-1. Start with the dashboard screenshots for a quick visual overview  
-2. Open the **PowerBI** folder to review the dashboard documentation  
-3. Review the **SQL** layer to understand how KPI logic is built  
-4. Explore the **Python** work for customer and risk-related analysis  
-5. Use the README as the business narrative tying all pieces together
-
----
-
-## Final Positioning
-
-This project demonstrates how a Business Analyst / BI Analyst can connect transactional sales data, operational performance, and product-level exposure into a single reporting framework.
-
-The main value of the work is not only showing results, but showing **where risk sits, what is driving it, and how decision-makers can act on it**.
-
----
-
-## License
-
-MIT License
