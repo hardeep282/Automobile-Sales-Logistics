@@ -1,235 +1,205 @@
-# Automobile Sales \& Logistics — Customer Intelligence Platform
+# 🚗 Automobile Sales & Logistics Analytics Platform
 
-> \\\*\\\*End-to-end commercial analytics project\\\*\\\* | SQL Server · Python · Power BI  
-> Built to answer a single business question: \\\*which customers are worth protecting, and which represent a hidden commercial or operational risk?\\\*
+**Author:** Hardeep Bamrah  
+**Role Focus:** Business Analyst | Commercial Analyst | BI Analyst  
+**Domain:** Sales Performance • Logistics Risk • Customer Intelligence  
+**Tools:** SQL Server • Python • Power BI • GitHub
 
-\---
+---
 
-## Project Overview
+## Executive Summary
 
-This project analyses a transactional automobile sales dataset of **2,747 order records across 89 customers**, spanning multiple product lines, countries, and deal sizes. The goal was not to build a model for its own sake — it was to produce a set of commercial insights that a Sales or Account Management team could act on immediately.
+This project was built to show how revenue reporting becomes more valuable when it is connected to operational reliability.
 
-The pipeline runs end-to-end: raw data ingestion and cleaning in SQL Server, customer-level feature engineering and machine learning in Python, and a Power BI dashboard for stakeholder reporting.
+Instead of treating sales and logistics as separate reporting streams, the dashboard combines both to answer three practical business questions:
+- **Where is revenue being generated?**
+- **Where is revenue operationally exposed?**
+- **What is driving that exposure by country, status, and product line?**
 
-\---
+The result is an analytics workflow that moves from raw transactions to KPI-ready SQL models and finally to Power BI dashboards designed for executive monitoring and risk-based decision-making.
 
-## Business Questions Addressed
+---
 
-* Which customers generate the most revenue — and which of those are at operational risk?
-* What drives customer revenue, and where should commercial effort be focused?
-* How do customers segment by purchasing behaviour and shipping reliability?
-* Where are the fulfilment risks concentrated, and what is the revenue exposure?
+## What The Dashboard Shows
 
-\---
+The dashboard is structured around four business views:
 
-## Tech Stack
+### 1. Operations Overview
+This page gives leadership an immediate view of commercial performance and operating health.
 
-|Layer|Tools Used|
-|-|-|
-|Data Architecture|SQL Server Express (SSMS)|
-|Data Cleaning \& EDA|Python — Pandas, NumPy|
-|Machine Learning|Scikit-learn — K-Means, Linear Regression, PCA|
-|Visualisation|Matplotlib, Seaborn, Plotly, Power BI|
-|Environment|Jupyter Notebook, Virtual Environment (.venv)|
+It brings together:
+- **Total Orders**
+- **Total Revenue**
+- **Shipping Reliability %**
+- **Failure %**
+- **Revenue at Risk**
+- monthly trends for reliability and failure
+- country comparison for Revenue at Risk %
 
-\---
+**Business value:** this page helps answer whether revenue growth is being supported by reliable fulfilment or being undermined by failures, delays, and operational exposure.
 
-## Data Architecture — Bronze · Silver · Gold
+### 2. Country Risk
+This page compares countries using both scale and risk.
 
-The project follows a layered SQL architecture to separate raw data from clean data from analytical outputs. This keeps the pipeline auditable and rebuilding any layer does not require re-ingesting source data.
+It includes:
+- country-level order volume
+- country-level revenue
+- Shipping Reliability %
+- Failure %
+- Stuck %
+- Revenue at Risk %
+- a scatter analysis mapping **Failure % vs Revenue at Risk %**, sized by **Total Orders**
 
+**Business value:** this makes it easier to identify which countries are not only large in revenue terms, but also vulnerable from an operations perspective.
+
+### 3. Order Status
+This page focuses on execution quality over time.
+
+It includes:
+- order status distribution by country
+- backlog orders trend over time
+- time and country filters
+
+**Business value:** this helps detect whether unresolved or delayed orders are building up before they create a visible revenue problem.
+
+### 4. Product / Revenue at Risk
+This page breaks risk down to product line level.
+
+It includes:
+- Product Orders
+- Allocated Revenue
+- Allocated Revenue at Risk %
+- Product High Risk % by product line
+- Allocated Revenue at Risk % by product line
+- Allocated Revenue by product line
+
+**Business value:** this helps prioritise product lines that combine commercial importance with higher operational exposure.
+
+---
+
+## Key Reporting Logic
+
+The dashboard is not built on isolated visuals. It is driven by reusable KPI logic modelled upstream in SQL and exposed through Power BI measures.
+
+Key metrics used across the report include:
+- **Total Orders**
+- **Total Revenue**
+- **Shipping Reliability %**
+- **Failure %**
+- **Stuck %**
+- **Revenue at Risk**
+- **Revenue at Risk %**
+- **Backlog Orders**
+- **Allocated Revenue**
+- **Allocated Revenue at Risk %**
+
+This structure allows the report to move from high-level monitoring to root-cause exploration across country, order status, and product line dimensions.
+
+---
+
+## What Caused What In This Project
+
+The project was designed to make cause-and-effect style analysis easier for decision-makers.
+
+Examples of the reporting logic include:
+- higher **Failure %** contributes to higher **Revenue at Risk %**
+- unresolved operational states increase **Backlog Orders** and can signal fulfilment pressure
+- countries with high order volumes and weak reliability are more likely to create larger revenue exposure
+- product lines with high allocated revenue and high risk percentages deserve greater operational attention
+
+This means the report does more than show performance. It helps explain **why certain parts of the business are more exposed than others**.
+
+---
+
+## Why This Matters For A Business
+
+A revenue dashboard on its own can hide operational problems.
+A logistics dashboard on its own can miss commercial importance.
+
+This project combines both views so teams can:
+- spot where commercial performance is vulnerable to fulfilment issues
+- prioritise countries where both scale and risk are high
+- monitor backlog behaviour before it becomes a larger service problem
+- identify product lines where operational issues are putting meaningful revenue at risk
+
+---
+
+## Dashboard Preview
+
+### Operations Overview
+![Executive Dashboard](screenshots/powerbi_executive_dashboard.png)
+
+### Country Risk View
+![Country Risk](screenshots/country_risk_dashboard.png)
+
+### Python Customer Analysis
+![RFM Segmentation](screenshots/rfm_revenue_contribution.png)
+
+---
+
+## Architecture
+
+```text
+Raw Transaction Data
+        ↓
+Bronze Layer (raw structured tables)
+        ↓
+Silver Layer (cleaned and standardised data)
+        ↓
+Gold Layer (order, country, and product-line KPI views)
+        ↓
+Power BI Dashboard Layer
+        ↓
+Business Monitoring and Risk Prioritisation
 ```
-Raw Source
-    │
-    ▼
-Bronze Layer  ──  dbo.bronze\\\_autosales
-                  Exact copy of source data. No transformations.
-                  Purpose: Auditability and reprocessing baseline.
-    │
-    ▼
-Silver Layer  ──  dbo.silver\\\_auto\\\_sales (VIEW)
-                  Cleaned and standardised.
-                  Key transformations:
-                  · Date parsing with TRY\\\_CONVERT (handles mixed formats)
-                  · Derived: pricing\\\_gap = (MSRP − PRICEEACH) × QUANTITYORDERED
-                  · Derived: discount\\\_pct = 1 − (PRICEEACH / MSRP)
-                  · Status normalised → binary: Shipped / Not Shipped
-                  · String trimming and case standardisation
-    │
-    ▼
-Gold Layer    ──  dbo.gold\\\_orders (VIEW)
-                  dbo.gold\\\_monthly\\\_revenue (VIEW)
-                  Aggregated for business reporting.
-                  Key features:
-                  · Order-level risk flags: failure\\\_flag, high\\\_risk\\\_flag, high\\\_discount\\\_flag
-                  · Monthly revenue and order counts
-                  · Pricing gap aggregated per order
-```
 
-**Data quality checks at Bronze layer confirmed:**
-
-* 2,747 rows, 20 features — zero nulls, zero duplicates
-* Sales range: £483 – £14,082 per line item
-* MSRP per unit: £33 – £214
-* Quantity ordered: 6 – 97 units
-
-\---
-
-## Feature Engineering — Customer-Level Aggregation
-
-Transaction data was aggregated from order-line level to **89 unique customers**, each described by six analytical features:
-
-|Feature|Description|How Calculated|
-|-|-|-|
-|`recency\\\_days`|Days since last order|Analysis date (2020-06-01) minus max order date|
-|`frequency\\\_orders`|Number of unique orders|COUNT DISTINCT of order numbers|
-|`monetary\\\_sales`|Total revenue|SUM of sales|
-|`avg\\\_totalmsrp`|Average MSRP exposure per order|MEAN of (MSRP × Quantity)|
-|`n\\\_unique\\\_products`|Product breadth|COUNT DISTINCT of product codes|
-|`shipping\\\_reliability`|% of orders successfully shipped|MEAN of binary shipped flag|
-
-\---
-
-## RFM Segmentation
-
-Customers were scored on Recency, Frequency, and Monetary dimensions using quartile-based ranking. Scores were summed into an RFM composite, then banded into three value tiers:
-
-|Value Tier|Customers|Total Revenue|Avg Revenue per Customer|
-|-|-|-|-|
-|**High Value**|27|£1,682,711|£62,323|
-|**Mid Value**|51|£6,417,403|£125,831|
-|**Low Value**|11|£1,660,107|£150,919|
-
-A fourth dimension — **Shipping Reliability** — was overlaid to identify fulfilment risk within each tier, producing a composite segment (e.g. *High Value – Fulfilment Risk*, *Mid Value – Growth Potential*):
-
-|Segment|Customers|
-|-|-|
-|Mid Value – Growth Potential|43|
-|High Value – Stable VIP|21|
-|Low Value – Stable (Upsell Test)|10|
-|Mid Value – Fulfilment Risk|8|
-|High Value – Fulfilment Risk|6|
-|Low Value – High Risk|1|
-
-> \\\*\\\*Key finding:\\\*\\\* 6 High Value customers carry active fulfilment risk. These are the highest-priority accounts for an SLA review — they are commercially significant and operationally exposed simultaneously.
-
-\---
-
-## K-Means Clustering
-
-K-Means was applied across all five customer features (MinMax scaled) to validate and extend the RFM segmentation with a data-driven grouping. k=4 was selected using the elbow method and silhouette scoring.
-
-|Cluster|Label|Customers|Avg Recency|Avg Orders|Avg Revenue|Avg Unique Products|Shipping Reliability|
-|-|-|-|-|-|-|-|-|
-|2|**Ultra VIP Heavy Buyers**|2|2 days|21.5|£783,576|91.5 products|0.90|
-|1|**Core Stable Buyers**|14|69 days|3.5|£113,691|29.5 products|0.60|
-|0|**VIP High Spenders**|62|165 days|3.0|£94,612|24.2 products|1.00|
-|3|**Dormant / At Risk**|11|444 days|2.1|£66,862|18.1 products|1.00|
-
-PCA (2 components) was applied for visual cluster separation and confirmed clean boundaries between the Ultra VIP and Dormant segments.
-
-> \\\*\\\*Commercial interpretation:\\\*\\\* The Ultra VIP cluster (Cluster 2) represents 2 customers generating nearly £800K average revenue each. Despite the small count, this group warrants dedicated account management — any churn here has disproportionate revenue impact.
-
-\---
-
-## Revenue Driver Analysis — Linear Regression
-
-A Linear Regression model was built on the 89-customer dataset to identify which features drive total customer revenue. The model was trained on an 80/20 train-test split.
-
-**Model performance:**
-
-* R² Score: 0.971
-* RMSE: £23,200
-
-**Coefficient interpretation (unscaled — revenue impact per 1 unit increase):**
-
-|Feature|Revenue Impact|
-|-|-|
-|`frequency\\\_orders`|+£23,686 per additional order|
-|`n\\\_unique\\\_products`|+£3,267 per additional unique product|
-|`shipping\\\_reliability`|+£2,981 per 1% improvement|
-|`recency\\\_days`|+£67 per additional day|
-|`avg\\\_totalmsrp`|+£16 per £1 MSRP increase|
-
-> \\\*\\\*Commercial interpretation:\\\*\\\* Order frequency is the dominant revenue driver by a significant margin. A strategy focused on increasing purchase frequency — through relationship management, promotional timing, or product range expansion — has the highest expected revenue return per unit of effort.
-
-\---
-
-## Key Findings Summary
-
-|Finding|Detail|
-|-|-|
-|Total customers analysed|89|
-|Total revenue in dataset|£9,760,222|
-|High Value customers at fulfilment risk|6 (22% of High Value base)|
-|Dominant revenue driver|Order frequency (+£23,686 per order)|
-|Dormant / At Risk customers|11 (444 days avg since last order)|
-|Ultra VIP avg revenue|£783,576 per customer|
-|82% of customers|Reliable shipping (≥95% shipped)|
-|18% of customers|Shipping issues requiring SLA review|
-
-\---
+---
 
 ## Repository Structure
 
-```
-Automobile-Sales-Logistics/
+```text
+automobile-sales-logistics/
 │
-├── Data/
-│   ├── Raw-Data/
-│   │   └── Auto Sales data.csv
-│   └── Cleaned-Data/
-│       ├── cust\\\_output.csv          # Customer-level aggregated features
-│       └── rfm\\\_output.csv           # RFM scores + segments + cluster labels
-│
-├── SQL/
-│   └── Car\\\_Sales\\\_Query.sql          # Full Bronze–Silver–Gold pipeline
-│
-├── Python/
-│   └── Notebooks/
-│       ├── Automobile-Sales-Logistics.ipynb     # EDA + feature engineering
-│       ├── Auto\\\_logistics\\\_rfm.ipynb             # RFM scoring + segmentation
-│       ├── Auto\\\_logistics\\\_cluster\\\_analysis.ipynb # K-Means clustering
-│       ├── Auto\\\_logistics\\\_reg.ipynb             # Linear regression
-│       └── Auto\\\_logistics\\\_visuals.ipynb         # Visualisations
-│
-├── Output/
-│   └── Visuals\\\_Plots/               # Exported charts (300 DPI)
-│
+├── Data/                # Source or prepared datasets
+├── python/              # EDA, segmentation, clustering, validation
+├── SQL/                 # Bronze → Silver → Gold SQL modelling logic
+├── PowerBI/             # Power BI dashboard file and notes
+├── streamlit/           # Optional app layer
+├── screenshots/         # Dashboard preview images
+├── app.py               # Streamlit entry point
+├── requirements.txt     # Project dependencies
 └── README.md
 ```
 
-\---
+---
 
-## How to Run
+## Tech Stack
 
-**Prerequisites**
+- **SQL Server** — cleaning, modelling, KPI layer
+- **Python** — customer and behavioural analysis
+- **Power BI** — executive dashboarding and business reporting
+- **GitHub** — project versioning and presentation
 
-* Python 3.9+
-* SQL Server Express (free) with SSMS
-* Required Python packages:
+---
 
-```bash
-pip install pandas numpy scikit-learn matplotlib seaborn plotly yellowbrick tabulate
-```
+## How To Review This Project
 
-**Steps**
+1. Start with the dashboard screenshots for a quick visual overview  
+2. Open the **PowerBI** folder to review the dashboard documentation  
+3. Review the **SQL** layer to understand how KPI logic is built  
+4. Explore the **Python** work for customer and risk-related analysis  
+5. Use the README as the business narrative tying all pieces together
 
-1. Load `Auto Sales data.csv` into SQL Server as `dbo.autosales\\\_raw`
-2. Run `Car\\\_Sales\\\_Query.sql` in order — this builds Bronze, Silver, and Gold layers
-3. Run notebooks in sequence: `Automobile-Sales-Logistics` → `rfm` → `cluster\\\_analysis` → `reg` → `visuals`
-4. Cleaned outputs (`cust\\\_output.csv`, `rfm\\\_output.csv`) are generated automatically
+---
 
-\---
+## Final Positioning
 
-## About
+This project demonstrates how a Business Analyst / BI Analyst can connect transactional sales data, operational performance, and product-level exposure into a single reporting framework.
 
-Built by **Hardeep Bamrah** as part of a commercial analytics portfolio demonstrating end-to-end analytical capability — from raw data architecture through machine learning to business insight.
+The main value of the work is not only showing results, but showing **where risk sits, what is driving it, and how decision-makers can act on it**.
 
-**MSc Management with Business Analytics** — Bournemouth University  
-[linkedin.com/in/hardeep-bamrah-479810234](https://linkedin.com/in/hardeep-bamrah-479810234)
+---
 
-\---
+## License
 
-*This project was built on a publicly available automobile sales dataset. All analysis, architecture decisions, and commercial interpretations are original work.*
-
+MIT License
