@@ -267,31 +267,25 @@ Tracks:
 ## Dashboard Preview
 
 ### Operations Overview
-![Operations Overview](screenshots/powerbi_executive_dashboard.png)
+![Operations Overview](screenshots/operations_overview.png)
 
 ### Country Risk
-![Country Risk](screenshots/country_risk_dashboard.png)
+![Country Risk](screenshots/country_risk.png)
 
 ### Order Status
-![Order Status](screenshots/Order_Status.png)
+![Order Status](screenshots/order_status.png)
 
 ### Product / Revenue at Risk
-![Product Revenue Risk](screenshots/Product_Revenue_Risk.png)
+![Product Revenue Risk](screenshots/product_revenue_risk.png)
 
 ### RFM Value Tier Distribution
-![RFM Value Tier](screenshots/Customer Distribution by RFM Value Tier.png)
-
-### Revenue Contribution by Value Tier
-![Revenue Contribution](screenshots/Revenue Contribution by RFM Value Tier.png)
-
-### Shipping Reliability Segmentation
-![Shipping Reliability](screenshots/Customer distribution by Shipping Reliability.png)
+![RFM Value Tier](screenshots/rfm_value_tier.png)
 
 ### K-Means Business Clusters
-![KMeans Cluster](screenshots/Customer Distribution by K-Means Business Clusters.png)
+![KMeans Cluster](screenshots/kmeans_business_clusters.png)
 
 ### Revenue Drivers
-![Revenue Drivers](screenshots/Revenue Drivers.png)
+![Revenue Drivers](screenshots/revenue_drivers.png)
 
 ---
 
