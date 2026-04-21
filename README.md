@@ -299,3 +299,31 @@ Automobile-Sales-Logistics/
 ├── app.py
 ├── requirements.txt
 └── README.md
+
+
+## Skills Demonstrated
+
+- SQL data modelling
+- KPI design
+- Revenue-at-risk analysis
+- Country risk reporting
+- Product-line operational exposure analysis
+- Customer segmentation
+- K-Means clustering
+- Regression modelling
+- Power BI dashboarding
+- Business storytelling with data
+
+---
+
+## Final Positioning
+
+This project demonstrates how analytics can connect revenue performance, operational reliability, customer behaviour, and product-level exposure into one decision-support framework.
+
+It shows not just what happened, but also where risk sits, what is driving it, and which areas deserve action.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
