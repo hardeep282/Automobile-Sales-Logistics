@@ -272,11 +272,6 @@ Tracks:
 ### Country Risk
 ![Country Risk](screenshots/country_risk.png)
 
-### Order Status
-![Order Status](screenshots/order_status.png)
-
-### Product / Revenue at Risk
-![Product Revenue Risk](screenshots/product_revenue_risk.png)
 
 ### RFM Value Tier Distribution
 ![RFM Value Tier](screenshots/rfm_value_tier.png)
