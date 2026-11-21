@@ -36,12 +36,15 @@ def _to_duckdb(body: str):
         yield stmt.replace("WITH bounds AS", "WITH RECURSIVE bounds AS")
 
 
-@pytest.fixture(scope="module")
-def con():
+def _build(csv_path, simulate_crlf_bulk_insert=False):
     c = duckdb.connect()
     for s in ("bronze", "silver", "gold"):
         c.execute(f"CREATE SCHEMA {s}")
-    c.execute(f"CREATE TABLE bronze.auto_sales_raw AS SELECT * FROM read_csv('{RAW_CSV.as_posix()}', all_varchar=true, header=true)")
+    c.execute(f"CREATE TABLE bronze.auto_sales_raw AS SELECT * FROM read_csv('{csv_path}', all_varchar=true, header=true)")
+    if simulate_crlf_bulk_insert:
+        # SQL Server BULK INSERT with ROWTERMINATOR 0x0a on a CRLF file leaves
+        # CHAR(13) on the last column. DuckDB strips it, so re-create it here.
+        c.execute("UPDATE bronze.auto_sales_raw SET DEALSIZE = DEALSIZE || chr(13)")
     for name in ("02_silver_transform.sql", "03_gold_model.sql"):
         for body in _batches(SQL_DIR / name):
             if body.upper().startswith(SKIP_PREFIXES) or body.upper().startswith("SELECT"):
@@ -49,6 +52,19 @@ def con():
             for stmt in _to_duckdb(body):
                 c.execute(stmt)
     return c
+
+
+@pytest.fixture(scope="module")
+def con():
+    return _build(RAW_CSV.as_posix())
+
+
+def test_crlf_checkout_still_gives_clean_deal_sizes():
+    """git on Windows can check the CSV out with CRLF endings; the last column
+    must not keep the carriage return (bug found on the first SQL Server run)."""
+    c = _build(RAW_CSV.as_posix(), simulate_crlf_bulk_insert=True)
+    sizes = {r[0] for r in c.execute("SELECT DISTINCT deal_size FROM silver.order_lines").fetchall()}
+    assert sizes == {"Small", "Medium", "Large"}
 
 
 def test_every_sql_batch_parses_as_tsql():

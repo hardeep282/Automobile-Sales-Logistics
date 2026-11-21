@@ -252,7 +252,7 @@ with tab_method:
         """
 ### How the numbers are built
 **SQL Server medallion** (`sql/`): bronze (raw text) → silver (typed, one row per order line) → gold (star schema + KPI views),
-with 23 automated data-quality tests. The **same KPI definitions** are used in SQL, in this app (Python) and in the Power BI measures,
+with 24 automated data-quality tests. The **same KPI definitions** are used in SQL, in this app (Python) and in the Power BI measures,
 and CI checks that SQL and Python agree.
 
 | KPI | Definition |

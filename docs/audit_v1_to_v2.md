@@ -23,7 +23,8 @@ A full review of the v1 repository (SQL, notebooks, Streamlit app, Power BI mode
 | B7 | "Profit proxy" mislabelled | `(MSRP − price) × qty`; 51% of lines sell above MSRP; no cost data | Renamed price realisation vs list | Honest metric |
 | B8 | MoM growth compared non-adjacent months | `LAG` over existing rows only | Calendar-month spine | Correct growth |
 | B9 | Country rates without sample size | Sweden/Denmark 14.3% = 1 of 7 orders | `low_sample_flag`, *failed / total* shown | No over-reading |
-| B10 | No tests, exploration mixed with DDL | one 860-line file | `05_data_quality_tests.sql` (23 tests) + CI running the SQL in DuckDB | Reproducible |
+| B10 | No tests, exploration mixed with DDL | one 860-line file | `05_data_quality_tests.sql` (24 tests) + CI running the SQL in DuckDB | Reproducible |
+| B11 | *Found on the first real SQL Server run:* deal size read as `Medium\r` | git on Windows checks the CSV out with CRLF endings; BULK INSERT leaves `CHAR(13)` on the last column, which `RTRIM` keeps | `REPLACE(DEALSIZE, CHAR(13), '')` in silver + accepted-values test + CI test on a CRLF copy | Clean Small / Medium / Large |
 
 ## C. Python analytics
 

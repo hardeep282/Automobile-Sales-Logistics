@@ -29,6 +29,9 @@ WITH tests AS (
            WHERE order_number IS NULL OR quantity IS NULL OR price_each IS NULL OR sales IS NULL OR msrp IS NULL
     UNION ALL
     SELECT N'every status is mapped (accepted values)', COUNT(*) FROM silver.order_lines WHERE status_group IS NULL
+    UNION ALL
+    SELECT N'deal_size in (Small, Medium, Large)', COUNT(*) FROM silver.order_lines
+           WHERE deal_size NOT IN (N'Small', N'Medium', N'Large') OR deal_size IS NULL
 
     /* ---------- validity ---------- */
     UNION ALL

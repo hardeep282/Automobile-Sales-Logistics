@@ -85,12 +85,12 @@ flowchart LR
 
 | Layer | What | Where |
 |---|---|---|
-| SQL | Bronze → Silver → Gold, star schema, 11 analysis queries, **23 data-quality tests** | [`sql/`](sql/README.md) |
+| SQL | Bronze → Silver → Gold, star schema, 11 analysis queries, **24 data-quality tests** | [`sql/`](sql/README.md) |
 | Python | Tested package: cleaning, KPIs, RFM, clustering, regression; reproducible pipeline | `src/autosales`, `scripts/run_pipeline.py` |
 | Notebooks | Narrative analysis (executed, relative paths) | `notebooks/01–04` |
 | Power BI | PBIP project: star-schema TMDL model, 32 documented measures, 5 report pages | [`powerbi/`](powerbi/README.md) |
 | App | 6-tab Streamlit dashboard with filters | `app.py` |
-| Quality | 26 pytest tests (Python, SQL-in-DuckDB, app smoke tests) + ruff, on every push | `tests/`, `.github/workflows/ci.yml` |
+| Quality | 27 pytest tests (Python, SQL-in-DuckDB, app smoke tests) + ruff, on every push | `tests/`, `.github/workflows/ci.yml` |
 
 ---
 
@@ -126,11 +126,11 @@ python -m venv .venv && .venv\Scripts\activate        # macOS/Linux: source .ven
 pip install -r requirements-dev.txt
 
 python scripts/run_pipeline.py      # rebuild data/processed + reports/figures
-pytest -q                           # 26 tests
+pytest -q                           # 27 tests
 streamlit run app.py                # dashboard on http://localhost:8501
 ```
 
-- **SQL Server:** `powershell -ExecutionPolicy Bypass -File scripts\run_sql_pipeline.ps1` builds bronze → silver → gold and runs the 23 tests in one go (or run `sql/00` → `05` in SSMS). See [`sql/README.md`](sql/README.md).
+- **SQL Server:** `powershell -ExecutionPolicy Bypass -File scripts\run_sql_pipeline.ps1` builds bronze → silver → gold and runs the 24 tests in one go (or run `sql/00` → `05` in SSMS). See [`sql/README.md`](sql/README.md).
 - **Power BI:** open `powerbi/Automobile_Sales_Logistics.pbip`, set the `ServerName` parameter, then refresh. See [`powerbi/README.md`](powerbi/README.md).
 
 ## Repository structure

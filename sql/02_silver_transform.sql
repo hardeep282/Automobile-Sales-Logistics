@@ -71,7 +71,10 @@ WITH typed AS (
                LTRIM(RTRIM(CONTACTLASTNAME)))                        AS contact_name,   -- NULL-safe
         LTRIM(RTRIM(CITY))                                           AS city,
         LTRIM(RTRIM(COUNTRY))                                        AS country,
-        LTRIM(RTRIM(DEALSIZE))                                       AS deal_size
+        -- DEALSIZE is the LAST column: if git on Windows checked the CSV out
+        -- with CRLF line endings, BULK INSERT leaves a trailing carriage
+        -- return (CHAR(13)) on it, which RTRIM does not remove.
+        LTRIM(RTRIM(REPLACE(DEALSIZE, CHAR(13), N'')))                AS deal_size
     FROM bronze.auto_sales_raw
 )
 SELECT
