@@ -1,0 +1,27 @@
+table dim_country
+	lineageTag: 65fd4f8c-97aa-4714-8643-4f73ed4233e2
+
+	column country
+		dataType: string
+		isKey
+		lineageTag: ef48ce49-cc12-4ee0-ba45-0368be0fe7f3
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: country
+
+	/// EMEA / North America / APAC.
+	column region
+		dataType: string
+		lineageTag: fb815e06-0fb1-43af-a019-168e995ee34e
+		summarizeBy: none
+		sourceColumn: region
+
+	partition dim_country = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database(ServerName, DatabaseName),
+					Data = Source{[Schema = "gold", Item = "dim_country"]}[Data]
+				in
+					Data
+

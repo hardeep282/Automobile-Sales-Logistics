@@ -1,0 +1,8 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../Automobile_Sales_Logistics.SemanticModel"
+    }
+  }
+}

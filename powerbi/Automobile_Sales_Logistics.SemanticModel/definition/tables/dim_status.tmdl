@@ -1,0 +1,85 @@
+/// Order status mapped to a business status group (single definition shared with SQL and Python).
+table dim_status
+	lineageTag: 2166c03e-ae5b-4c04-afe0-410fbdc0112d
+
+	column status
+		dataType: string
+		isKey
+		lineageTag: e16afbb9-6ee9-4c25-8fa4-a2385bb5de02
+		summarizeBy: none
+		sourceColumn: status
+		sortByColumn: status_sort
+
+	/// Fulfilled (Shipped, Resolved) | Open (In Process) | At Risk (On Hold, Disputed) | Lost (Cancelled).
+	column status_group
+		dataType: string
+		lineageTag: 35ef8e5f-4f70-4a84-a767-58a0157a1930
+		summarizeBy: none
+		sourceColumn: status_group
+		sortByColumn: status_group_sort
+
+	column status_sort
+		dataType: int64
+		isHidden
+		lineageTag: 643534cd-cc30-4297-be91-ff2b7fc88e73
+		summarizeBy: none
+		sourceColumn: status_sort
+
+	column status_group_sort
+		dataType: int64
+		isHidden
+		lineageTag: 8b650424-9f64-4394-93ea-693b2dfd26d2
+		summarizeBy: none
+		sourceColumn: status_group_sort
+
+	column is_fulfilled
+		dataType: int64
+		isHidden
+		lineageTag: 47c52877-7d0e-46f9-b558-cb4055e03847
+		summarizeBy: none
+		sourceColumn: is_fulfilled
+
+	column is_open
+		dataType: int64
+		isHidden
+		lineageTag: 2c12a66b-39b1-470f-b655-aeb40d8c4028
+		summarizeBy: none
+		sourceColumn: is_open
+
+	column is_at_risk
+		dataType: int64
+		isHidden
+		lineageTag: 2658b968-186f-4ac0-8831-e8dd414dd3d4
+		summarizeBy: none
+		sourceColumn: is_at_risk
+
+	column is_lost
+		dataType: int64
+		isHidden
+		lineageTag: 56dc211b-edb2-4099-a869-9f4152c23803
+		summarizeBy: none
+		sourceColumn: is_lost
+
+	column is_failed
+		dataType: int64
+		isHidden
+		lineageTag: 77a852be-768f-44ba-a87a-42f3092a7ac3
+		summarizeBy: none
+		sourceColumn: is_failed
+
+	column had_issue
+		dataType: int64
+		isHidden
+		lineageTag: 5dc41dd5-b07b-4de2-be0c-c0da66600a60
+		summarizeBy: none
+		sourceColumn: had_issue
+
+	partition dim_status = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database(ServerName, DatabaseName),
+					Data = Source{[Schema = "gold", Item = "dim_status"]}[Data]
+				in
+					Data
+

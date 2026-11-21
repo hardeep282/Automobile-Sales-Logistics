@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Automobile_Sales_Logistics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "723487e4-36c7-511f-9469-91e9d10aa2d1"
+  }
+}

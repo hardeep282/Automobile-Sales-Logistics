@@ -1,0 +1,12 @@
+# Everything needed to re-run the pipeline, notebooks and tests.
+-r requirements.txt
+scikit-learn>=1.5
+statsmodels>=0.14
+matplotlib>=3.8
+jupyterlab>=4
+nbconvert>=7
+ipykernel>=6
+pytest>=8
+ruff>=0.6
+sqlglot>=25
+duckdb>=1.0

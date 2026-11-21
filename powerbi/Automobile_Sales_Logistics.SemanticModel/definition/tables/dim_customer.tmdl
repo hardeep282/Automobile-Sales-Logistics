@@ -1,0 +1,40 @@
+/// One row per customer. Personal contact details (phone, address) are excluded upstream.
+table dim_customer
+	lineageTag: b29a6d63-525d-40ae-b684-68ee5ac06891
+
+	column customer_name
+		dataType: string
+		isKey
+		lineageTag: 6cd817b1-4548-45f6-a5c0-e26c615346ed
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column contact_name
+		dataType: string
+		lineageTag: 0d0eabe8-8941-47d2-aa46-bc2e859eae18
+		summarizeBy: none
+		sourceColumn: contact_name
+
+	column city
+		dataType: string
+		lineageTag: c9df40ef-9376-45e7-a1ab-bde4a5862dd4
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: city
+
+	/// Customer's country (attribute only; filter by dim_country for analysis).
+	column country
+		dataType: string
+		lineageTag: 8612f52f-1fd8-42ea-9491-e5e4bf5c4c6d
+		summarizeBy: none
+		sourceColumn: country
+
+	partition dim_customer = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database(ServerName, DatabaseName),
+					Data = Source{[Schema = "gold", Item = "dim_customer"]}[Data]
+				in
+					Data
+

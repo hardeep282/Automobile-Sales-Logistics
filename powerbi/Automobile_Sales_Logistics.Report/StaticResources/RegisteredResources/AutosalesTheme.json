@@ -1,0 +1,97 @@
+{
+  "name": "Autosales v2",
+  "dataColors": [
+    "#4C78A8",
+    "#2E7D5B",
+    "#E69F00",
+    "#C0392B",
+    "#8E6BB8",
+    "#17BECF",
+    "#9AA5B1",
+    "#7F7F7F"
+  ],
+  "good": "#2E7D5B",
+  "neutral": "#E69F00",
+  "bad": "#C0392B",
+  "background": "#FFFFFF",
+  "foreground": "#1F2933",
+  "tableAccent": "#4C78A8",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#1F2933"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 22,
+      "color": "#1F2933"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#52606D"
+    }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F5F7FA"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E4E7EB"
+              }
+            },
+            "radius": 6
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "textbox": {
+      "*": {
+        "background": [
+          {
+            "show": false
+          }
+        ],
+        "border": [
+          {
+            "show": false
+          }
+        ]
+      }
+    }
+  }
+}

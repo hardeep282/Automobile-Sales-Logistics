@@ -1,0 +1,90 @@
+customer_name,monetary,n_unique_products,country,region,city,main_product_line,frequency,open_orders,issue_orders,at_risk_orders,lost_orders,fulfilled_orders,recency_days,tenure_days,avg_order_value,fulfilment_rate,fulfilment_experience,R_score,F_score,M_score,RFM_score,value_tier,rfm_segment,v1_value_tier,cluster,cluster_label
+"AV Stores, Co.",157807.81,37,UK,EMEA,Manchester,Vintage Cars,3,0,0,0,0,3,197,609,52602.60333333333,1.0,Clean record,2,3,4,9,Mid Value,At Risk – High Value,Low Value,0,Mid-value · Cooling
+Alpha Cognac,70488.44,20,France,EMEA,Toulouse,Ships,3,0,0,0,0,3,65,633,23496.146666666667,1.0,Clean record,4,3,2,9,Mid Value,Potential Loyalists,Mid Value,0,Mid-value · Cooling
+Amica Models & Co.,94117.26,26,Italy,EMEA,Torino,Vintage Cars,2,0,0,0,0,2,266,23,47058.63,1.0,Clean record,1,1,3,5,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+"Anna's Decorations, Ltd",153996.13,41,Australia,APAC,North Sydney,Classic Cars,4,0,0,0,0,4,84,545,38499.0325,1.0,Clean record,3,4,4,11,High Value,Champions,Low Value,0,Mid-value · Cooling
+Atelier graphique,24179.96,7,France,EMEA,Nantes,Classic Cars,3,0,0,0,0,3,189,554,8059.986666666667,1.0,Clean record,2,3,1,6,Low Value,Hibernating,Mid Value,2,Low-value · Cooling
+"Australian Collectables, Ltd",64591.46,23,Australia,APAC,Glen Waverly,Vintage Cars,3,0,1,1,0,2,23,535,21530.486666666668,0.6666666666666666,Order at risk / lost,4,3,1,8,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+"Australian Collectors, Co.",200995.41,40,Australia,APAC,Melbourne,Motorcycles,5,0,0,0,0,5,185,579,40199.082,1.0,Clean record,3,4,4,11,High Value,Champions,Low Value,0,Mid-value · Cooling
+"Australian Gift Network, Co",59469.12,15,Australia,APAC,South Brisbane,Classic Cars,3,0,0,0,0,3,120,495,19823.04,1.0,Clean record,3,3,1,7,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+Auto Assoc. & Cie.,64834.32,17,France,EMEA,Versailles,Vintage Cars,2,0,0,0,0,2,234,251,32417.16,1.0,Clean record,1,1,1,3,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Auto Canal Petit,93170.66,18,France,EMEA,Paris,Motorcycles,3,0,0,0,0,3,55,448,31056.88666666667,1.0,Clean record,4,3,3,10,High Value,Champions,Mid Value,0,Mid-value · Cooling
+Auto-Moto Classics Inc.,26479.26,8,USA,North America,Brickhaven,Planes,3,0,0,0,0,3,181,535,8826.42,1.0,Clean record,3,3,1,7,Mid Value,Potential Loyalists,High Value,2,Low-value · Cooling
+Baane Mini Imports,116599.19,32,Norway,EMEA,Stavern,Trucks and Buses,4,0,0,0,0,4,209,645,29149.7975,1.0,Clean record,2,4,3,9,Mid Value,At Risk – High Value,Low Value,0,Mid-value · Cooling
+"Bavarian Collectables Imports, Co.",34993.92,14,Germany,EMEA,Munich,Planes,1,0,0,0,0,1,260,0,34993.92,1.0,Clean record,1,1,1,3,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+"Blauer See Auto, Co.",85171.59,22,Germany,EMEA,Frankfurt,Classic Cars,4,0,0,0,0,4,209,665,21292.8975,1.0,Clean record,2,4,2,8,Mid Value,At Risk – High Value,Mid Value,0,Mid-value · Cooling
+Boards & Toys Co.,9129.35,3,USA,North America,Glendale,Classic Cars,2,0,0,0,0,2,114,494,4564.675,1.0,Clean record,3,1,1,5,Low Value,Potential Loyalists,High Value,2,Low-value · Cooling
+CAF Imports,49642.05,13,Spain,EMEA,Madrid,Ships,2,0,0,0,0,2,440,132,24821.025,1.0,Clean record,1,1,1,3,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Cambridge Collectables Co.,36163.62,11,USA,North America,Cambridge,Vintage Cars,2,0,0,0,0,2,390,59,18081.81,1.0,Clean record,1,1,1,3,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Canadian Gift Exchange Network,75238.92,19,Canada,North America,Vancouver,Trucks and Buses,2,0,0,0,0,2,223,321,37619.46,1.0,Clean record,2,1,2,5,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+"Classic Gift Ideas, Inc",67506.97,21,USA,North America,Philadelphia,Vintage Cars,2,0,0,0,0,2,231,335,33753.485,1.0,Clean record,2,1,1,4,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+Classic Legends Inc.,77795.2,20,USA,North America,NYC,Classic Cars,3,0,0,0,0,3,193,596,25931.733333333334,1.0,Clean record,2,3,2,7,Mid Value,Hibernating,Mid Value,0,Mid-value · Cooling
+"Clover Collections, Co.",57756.43,16,Ireland,EMEA,Dublin,Classic Cars,2,0,0,0,0,2,259,216,28878.215,1.0,Clean record,1,1,1,3,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+Collectable Mini Designs Co.,87489.23,25,USA,North America,San Diego,Classic Cars,2,0,0,0,0,2,461,7,43744.615,1.0,Clean record,1,1,3,5,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Collectables For Less Inc.,81577.98,24,USA,North America,Brickhaven,Classic Cars,3,0,0,0,0,3,133,502,27192.66,1.0,Clean record,3,3,2,8,Mid Value,Potential Loyalists,Mid Value,0,Mid-value · Cooling
+"Corrida Auto Replicas, Ltd",120615.28,26,Spain,EMEA,Madrid,Vintage Cars,3,0,0,0,0,3,213,522,40205.09333333333,1.0,Clean record,2,3,4,9,Mid Value,At Risk – High Value,Low Value,0,Mid-value · Cooling
+Cruz & Sons Co.,94015.73,22,Philippines,APAC,Makati City,Classic Cars,3,0,0,0,0,3,198,623,31338.576666666664,1.0,Clean record,2,3,3,8,Mid Value,At Risk – High Value,Mid Value,0,Mid-value · Cooling
+Daedalus Designs Imports,69052.41,14,France,EMEA,Lille,Motorcycles,2,0,0,0,0,2,466,102,34526.205,1.0,Clean record,1,1,1,3,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+Danish Wholesale Imports,145041.6,31,Denmark,EMEA,Kobenhavn,Classic Cars,5,0,2,1,0,4,47,794,29008.32,0.8,Order at risk / lost,4,4,4,12,High Value,Champions,Mid Value,0,Mid-value · Cooling
+Diecast Classics Inc.,122138.14,31,USA,North America,Allentown,Trucks and Buses,4,1,0,0,0,3,2,315,30534.535,1.0,Clean record,4,4,4,12,High Value,Champions,Mid Value,0,Mid-value · Cooling
+Diecast Collectables,70859.78,18,USA,North America,Boston,Trucks and Buses,2,0,0,0,0,2,402,138,35429.89,1.0,Clean record,1,1,2,4,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+"Double Decker Gift Stores, Ltd",36019.04,12,UK,EMEA,London,Vintage Cars,2,0,0,0,0,2,496,69,18009.52,1.0,Clean record,1,1,1,3,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+"Dragon Souveniers, Ltd.",172989.68,37,Singapore,APAC,Singapore,Classic Cars,5,0,0,0,0,5,91,686,34597.936,1.0,Clean record,3,4,4,11,High Value,Champions,Low Value,0,Mid-value · Cooling
+Enaco Distributors,78411.86,22,Spain,EMEA,Barcelona,Ships,3,0,0,0,0,3,190,582,26137.286666666667,1.0,Clean record,2,3,2,7,Mid Value,Hibernating,Mid Value,0,Mid-value · Cooling
+Euro Shopping Channel,912294.11,106,Spain,EMEA,Madrid,Classic Cars,26,1,3,1,1,23,1,851,35088.235,0.92,Order at risk / lost,4,4,4,12,High Value,Champions,Mid Value,3,High-value · Active
+FunGiftIdeas.com,98923.73,26,USA,North America,New Bedford,Classic Cars,3,0,0,0,0,3,90,499,32974.57666666667,1.0,Clean record,3,3,3,9,Mid Value,Champions,Mid Value,0,Mid-value · Cooling
+Gift Depot Inc.,101894.79,25,USA,North America,Bridgewater,Classic Cars,3,0,0,0,0,3,27,547,33964.93,1.0,Clean record,4,3,3,10,High Value,Champions,Mid Value,0,Mid-value · Cooling
+Gift Ideas Corp.,57294.42,19,USA,North America,Glendale,Planes,3,0,0,0,0,3,180,536,19098.14,1.0,Clean record,3,3,1,7,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+Gifts4AllAges.com,83209.88,21,USA,North America,Boston,Ships,3,0,1,1,0,2,26,311,27736.626666666667,0.6666666666666666,Order at risk / lost,4,3,2,9,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+Handji Gifts& Co,115498.73,29,Singapore,APAC,Singapore,Classic Cars,4,0,0,0,0,4,39,444,28874.6825,1.0,Clean record,4,4,3,11,High Value,Champions,Mid Value,0,Mid-value · Cooling
+Heintze Collectables,100595.55,27,Denmark,EMEA,Aaarhus,Classic Cars,2,0,0,0,0,2,223,370,50297.775,1.0,Clean record,2,1,3,6,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Herkku Gifts,111640.28,29,Norway,EMEA,Bergen,Classic Cars,3,0,0,0,0,3,272,295,37213.426666666666,1.0,Clean record,1,3,3,7,Mid Value,At Risk – High Value,Low Value,1,Mid-value · Lapsed
+"Iberia Gift Imports, Corp.",54723.62,15,Spain,EMEA,Sevilla,Trucks and Buses,2,0,0,0,0,2,239,326,27361.81,1.0,Clean record,1,1,1,3,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+L'ordine Souveniers,142601.33,39,Italy,EMEA,Reggio Emilia,Classic Cars,3,0,0,0,0,3,22,551,47533.776666666665,1.0,Clean record,4,3,4,11,High Value,Champions,Mid Value,0,Mid-value · Cooling
+"La Corne D'abondance, Co.",97203.68,22,France,EMEA,Paris,Classic Cars,3,0,0,0,0,3,194,598,32401.226666666666,1.0,Clean record,2,3,3,8,Mid Value,At Risk – High Value,Mid Value,0,Mid-value · Cooling
+La Rochelle Gifts,180124.9,43,France,EMEA,Nantes,Motorcycles,4,1,0,0,0,3,1,313,45031.225,1.0,Clean record,4,4,4,12,High Value,Champions,Mid Value,0,Mid-value · Cooling
+Land of Toys Inc.,164069.44,41,USA,North America,NYC,Motorcycles,4,0,1,0,1,3,199,629,41017.36,0.75,Order at risk / lost,2,4,4,10,High Value,At Risk – High Value,Low Value,0,Mid-value · Cooling
+Lyon Souveniers,78570.34,20,France,EMEA,Paris,Motorcycles,3,0,0,0,0,3,76,625,26190.11333333333,1.0,Clean record,4,3,2,9,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+Marseille Mini Autos,74936.14,24,France,EMEA,Marseille,Classic Cars,3,0,0,0,0,3,147,608,24978.713333333333,1.0,Clean record,3,3,2,8,Mid Value,Potential Loyalists,Mid Value,0,Mid-value · Cooling
+Marta's Replicas Co.,103080.38,27,USA,North America,Cambridge,Motorcycles,2,0,0,0,0,2,232,47,51540.19,1.0,Clean record,1,1,3,5,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Microscale Inc.,33144.93,10,USA,North America,NYC,Motorcycles,2,0,0,0,0,2,211,197,16572.465,1.0,Clean record,2,1,1,4,Low Value,Hibernating,High Value,2,Low-value · Cooling
+Mini Auto Werke,52263.9,15,Austria,EMEA,Graz,Classic Cars,3,0,1,0,0,3,83,506,17421.3,1.0,Issue resolved,3,3,1,7,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+Mini Caravy,80438.48,19,France,EMEA,Strasbourg,Classic Cars,3,0,0,0,0,3,48,367,26812.826666666664,1.0,Clean record,4,3,2,9,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+Mini Classics,85555.99,26,USA,North America,White Plains,Planes,2,0,0,0,0,2,230,324,42777.995,1.0,Clean record,2,1,2,5,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+Mini Creations Ltd.,108951.13,34,USA,North America,New Bedford,Ships,3,0,0,0,0,3,146,515,36317.043333333335,1.0,Clean record,3,3,3,9,Mid Value,Champions,Mid Value,0,Mid-value · Cooling
+Mini Gifts Distributors Ltd.,654858.06,77,USA,North America,San Rafael,Classic Cars,17,1,0,0,0,16,3,795,38521.06235294118,1.0,Clean record,4,4,4,12,High Value,Champions,Mid Value,3,High-value · Active
+Motor Mint Distributors Inc.,83682.16,17,USA,North America,Philadelphia,Classic Cars,3,0,0,0,0,3,197,617,27894.053333333333,1.0,Clean record,2,3,2,7,Mid Value,Hibernating,Mid Value,0,Mid-value · Cooling
+Muscle Machine Inc,197736.94,32,USA,North America,NYC,Classic Cars,4,0,0,0,0,4,183,546,49434.235,1.0,Clean record,3,4,4,11,High Value,Champions,Low Value,0,Mid-value · Cooling
+"Norway Gifts By Mail, Co.",79224.23,24,Norway,EMEA,Oslo,Classic Cars,2,0,0,0,0,2,285,320,39612.115,1.0,Clean record,1,1,2,4,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Online Diecast Creations Co.,131685.3,34,USA,North America,Nashua,Classic Cars,3,0,0,0,0,3,210,667,43895.1,1.0,Clean record,2,3,4,9,Mid Value,At Risk – High Value,Mid Value,0,Mid-value · Cooling
+Online Mini Collectables,57197.96,15,USA,North America,Brickhaven,Classic Cars,2,0,0,0,0,2,265,39,28598.98,1.0,Clean record,1,1,1,3,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+Osaka Souveniers Co.,67605.07,20,Japan,APAC,Osaka,Planes,2,0,0,0,0,2,415,91,33802.535,1.0,Clean record,1,1,1,3,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+"Oulu Toy Supplies, Inc.",104370.38,31,Finland,EMEA,Oulu,Classic Cars,3,0,0,0,0,3,122,497,34790.12666666667,1.0,Clean record,3,3,3,9,Mid Value,Champions,Mid Value,0,Mid-value · Cooling
+Petit Auto,74972.52,20,Belgium,EMEA,Bruxelles,Vintage Cars,3,1,0,0,0,2,2,467,24990.84,1.0,Clean record,4,3,2,9,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+Quebec Home Shopping Network,74204.79,22,Canada,North America,Montreal,Classic Cars,3,0,0,0,0,3,31,543,24734.929999999997,1.0,Clean record,4,3,2,9,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+Reims Collectables,135042.94,37,France,EMEA,Reims,Classic Cars,5,0,0,0,0,5,63,693,27008.588,1.0,Clean record,4,4,4,12,High Value,Champions,Mid Value,0,Mid-value · Cooling
+Rovelli Gifts,137955.72,34,Italy,EMEA,Bergamo,Vintage Cars,3,0,0,0,0,3,202,633,45985.24,1.0,Clean record,2,3,4,9,Mid Value,At Risk – High Value,Mid Value,0,Mid-value · Cooling
+"Royal Canadian Collectables, Ltd.",74634.85,26,Canada,North America,Tsawassen,Planes,2,0,0,0,0,2,286,140,37317.425,1.0,Clean record,1,1,2,4,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Royale Belge,33440.1,8,Belgium,EMEA,Charleroi,Classic Cars,4,0,0,0,0,4,143,639,8360.025,1.0,Clean record,3,4,1,8,Mid Value,Potential Loyalists,Mid Value,2,Low-value · Cooling
+Salzburg Collectables,149798.63,36,Austria,EMEA,Salzburg,Classic Cars,4,0,0,0,0,4,15,750,37449.6575,1.0,Clean record,4,4,4,12,High Value,Champions,Mid Value,0,Mid-value · Cooling
+"Saveley & Henriot, Co.",142874.25,41,France,EMEA,Lyon,Vintage Cars,3,0,0,0,0,3,457,97,47624.75,1.0,Clean record,1,3,4,8,Mid Value,At Risk – High Value,Low Value,1,Mid-value · Lapsed
+Scandinavian Gift Ideas,134259.33,38,Sweden,EMEA,Boras,Classic Cars,3,0,1,0,1,2,90,497,44753.10999999999,0.6666666666666666,Order at risk / lost,3,3,4,10,High Value,Champions,Mid Value,0,Mid-value · Cooling
+Signal Collectibles Ltd.,50218.51,15,USA,North America,Brisbane,Vintage Cars,2,0,0,0,0,2,477,151,25109.255,1.0,Clean record,1,1,1,3,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+Signal Gift Stores,82751.08,24,USA,North America,Las Vegas,Classic Cars,3,0,0,0,0,3,185,557,27583.693333333333,1.0,Clean record,3,3,2,8,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+Souveniers And Things Co.,151570.98,44,Australia,APAC,Chatswood,Vintage Cars,4,1,0,0,0,3,3,683,37892.745,1.0,Clean record,4,4,4,12,High Value,Champions,Mid Value,0,Mid-value · Cooling
+"Stylish Desk Decors, Co.",88804.5,26,UK,EMEA,London,Trucks and Buses,3,0,0,0,0,3,181,539,29601.5,1.0,Clean record,3,3,3,9,Mid Value,Champions,Mid Value,0,Mid-value · Cooling
+Suominen Souveniers,113961.15,30,Finland,EMEA,Espoo,Classic Cars,3,0,0,0,0,3,147,523,37987.049999999996,1.0,Clean record,3,3,3,9,Mid Value,Champions,Mid Value,0,Mid-value · Cooling
+Super Scale Inc.,79472.07,17,USA,North America,New Haven,Classic Cars,2,0,0,0,0,2,394,159,39736.035,1.0,Clean record,1,1,2,4,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Technics Stores Inc.,120783.07,30,USA,North America,Burlingame,Motorcycles,4,0,0,0,0,4,148,530,30195.7675,1.0,Clean record,3,4,4,11,High Value,Champions,Low Value,0,Mid-value · Cooling
+Tekni Collectables Inc.,83228.19,21,USA,North America,Newark,Planes,3,0,1,1,0,2,59,371,27742.73,0.6666666666666666,Order at risk / lost,4,3,2,9,Mid Value,Potential Loyalists,High Value,0,Mid-value · Cooling
+The Sharp Gifts Warehouse,160010.27,39,USA,North America,San Jose,Planes,4,0,1,1,0,3,40,347,40002.5675,0.75,Order at risk / lost,4,4,4,12,High Value,Champions,Mid Value,0,Mid-value · Cooling
+"Tokyo Collectables, Ltd",120562.74,32,Japan,APAC,Minato-ku,Vintage Cars,4,0,0,0,0,4,40,312,30140.685,1.0,Clean record,4,4,4,12,High Value,Champions,Mid Value,0,Mid-value · Cooling
+"Toms Spezialitten, Ltd",100306.58,17,Germany,EMEA,Koln,Classic Cars,2,0,0,0,0,2,229,330,50153.29,1.0,Clean record,2,1,3,6,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+"Toys of Finland, Co.",111250.38,30,Finland,EMEA,Helsinki,Classic Cars,3,0,0,0,0,3,113,491,37083.46,1.0,Clean record,3,3,3,9,Mid Value,Champions,Mid Value,0,Mid-value · Cooling
+Toys4GrownUps.com,104561.95999999999,29,USA,North America,Pasadena,Motorcycles,3,0,1,0,0,3,141,505,34853.986666666664,1.0,Issue resolved,3,3,3,9,Mid Value,Champions,Mid Value,0,Mid-value · Cooling
+"UK Collectables, Ltd.",118008.27,29,UK,EMEA,Liverpool,Classic Cars,3,0,1,0,1,2,54,550,39336.090000000004,0.6666666666666666,Order at risk / lost,4,3,3,10,High Value,Champions,High Value,0,Mid-value · Cooling
+"Vida Sport, Ltd",117713.56,17,Switzerland,EMEA,Gensve,Classic Cars,2,0,0,0,0,2,276,189,58856.78,1.0,Clean record,1,1,3,5,Low Value,Hibernating,Mid Value,1,Mid-value · Lapsed
+Vitachrome Inc.,88041.26,25,USA,North America,NYC,Motorcycles,3,0,0,0,0,3,209,664,29347.086666666666,1.0,Clean record,2,3,3,8,Mid Value,At Risk – High Value,Mid Value,0,Mid-value · Cooling
+"Volvo Model Replicas, Co",75754.88,19,Sweden,EMEA,Lule,Classic Cars,4,0,1,1,0,3,195,605,18938.72,0.75,Order at risk / lost,2,4,2,8,Mid Value,At Risk – High Value,Mid Value,0,Mid-value · Cooling
+West Coast Collectables Co.,46084.64,13,USA,North America,Burbank,Vintage Cars,2,0,0,0,0,2,489,59,23042.32,1.0,Clean record,1,1,1,3,Low Value,Hibernating,High Value,1,Mid-value · Lapsed
+giftsbymail.co.uk,78240.84,26,UK,EMEA,Cowes,Planes,2,0,0,0,0,2,213,226,39120.42,1.0,Clean record,2,1,2,5,Low Value,Hibernating,High Value,1,Mid-value · Lapsed

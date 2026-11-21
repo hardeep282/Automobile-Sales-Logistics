@@ -1,0 +1,4 @@
+# Power BI Desktop local/cache files (never commit)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/unappliedChanges.json

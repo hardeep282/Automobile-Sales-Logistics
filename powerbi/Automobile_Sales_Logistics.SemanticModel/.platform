@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Automobile_Sales_Logistics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2faca073-cf44-5afc-b560-43ffce9903e5"
+  }
+}

@@ -1,329 +1,177 @@
+# 🚗 Automobile Sales & Logistics Analytics
 
+**End-to-end commercial analytics: SQL Server medallion model → tested Python analytics → Power BI (PBIP) → Streamlit app**
 
-# 🚗 Automobile Sales & Logistics Analytics Platform
+**Author:** Hardeep Bamrah · **Focus:** Commercial / BI / Data Analyst · **Stack:** SQL Server · Python (pandas, scikit-learn, statsmodels) · Power BI (TMDL / PBIR) · Streamlit · GitHub Actions
 
-**Author:** Hardeep Bamrah  
-**Role Focus:** Business Analyst | Commercial Analyst | BI Analyst  
-**Domain:** Sales Performance • Logistics Risk • Customer Intelligence  
-**Tools:** SQL Server • Python • Power BI • GitHub
-
----
-
-## Executive Summary
-
-This project combines sales analytics, logistics risk monitoring, customer segmentation, and revenue driver analysis into a single end-to-end analytics workflow.
-
-Instead of reporting revenue in isolation, the project shows how operational reliability, order failures, backlog behaviour, product-line exposure, and customer behaviour affect commercial performance.
-
-The solution was built using:
-- **SQL Server** for Bronze → Silver → Gold modelling
-- **Python** for RFM segmentation, clustering, regression, and visual analysis
-- **Power BI** for executive dashboards and operational reporting
+![CI](https://github.com/hardeep282/Automobile-Sales-Logistics/actions/workflows/ci.yml/badge.svg)
 
 ---
 
-## Business Objective
+## The business question
 
-The project was designed to answer practical commercial and operational questions such as:
+A distributor of scale-model vehicles sells to 89 trade customers in 19 countries. Leadership wants to know:
 
-- Which countries generate the most revenue?
-- Which markets are operationally risky despite strong revenue?
-- How much revenue is exposed to failures or stuck orders?
-- Which product lines combine high revenue with high risk?
-- Which customer segments drive the most value?
-- What factors are most strongly associated with revenue growth?
+1. **How healthy is fulfilment, and how much revenue is exposed?**
+2. **Which markets and product lines carry the risk?** (and is that risk statistically meaningful?)
+3. **Which customers matter most, and who is slipping away?**
+4. **What actually drives customer revenue? Do fulfilment problems cost money?**
 
----
-
-## Headline Results
-
-### Power BI Executive KPIs
-- **Total Orders:** 298
-- **Total Revenue:** 9.76M
-- **Shipping Reliability:** 94.30%
-- **Failure Rate:** 2.35%
-- **Revenue at Risk:** 590.41K
-
-These KPIs show that the business is operationally stable overall, but still carries a measurable level of revenue exposure linked to fulfilment and order-risk conditions.
+Data: 2,747 order lines · 298 orders · Jan 2018 – May 2020 (2020 is partial). Public Kaggle dataset, see [data dictionary](docs/data_dictionary.md).
 
 ---
 
-## Country-Level Risk Insights
+## Headline results
 
-The dashboard compares revenue, operational quality, and exposure by country.
+| KPI | Value | Definition |
+|---|---|---|
+| Revenue | **£9.76M** | Σ line sales |
+| Orders / AOV | **298 / £32.8k** | |
+| Fulfilment rate | **96.2%** | fulfilled ÷ closed orders |
+| Failure rate | **2.35%** (7 orders) | cancelled + disputed ÷ orders |
+| Revenue at risk | **£251k (2.6%)** | on-hold + disputed, still recoverable |
+| Revenue lost | **£194k (2.0%)** | cancelled |
 
-### Key findings
-- **USA** is the largest market:
-  - **103 orders**
-  - **3,355,575.69 revenue**
-  - **94.17% shipping reliability**
-  - **0.97% failure rate**
-- **France** and **Spain** are also major contributors:
-  - France: **1,110,916.52 revenue**
-  - Spain: **1,215,686.92 revenue**
-- **Sweden** stands out as the highest-risk market:
-  - **14.29% failure rate**
-  - highest visible revenue-at-risk concentration in the dashboard
-- Other countries with notable operational exposure include:
-  - **Denmark**
-  - **UK**
-  - **Spain**
-  - **Australia**
-  - **Belgium**
+All KPI definitions are in [docs/kpi_definitions.md](docs/kpi_definitions.md). SQL, Python and Power BI share the same definitions, and CI checks that SQL and Python agree.
 
-### Why it matters
-This view helps identify markets where commercial scale and operational fragility overlap.  
-That makes it easier to prioritise intervention where revenue is most exposed.
+![Order outcomes](reports/figures/01_status_mix.png)
 
----
+## Key insights
 
-## Product / Revenue at Risk Insights
+**Operations**
+- Fulfilment is strong, but **£251k sits in 7 on-hold or disputed orders**. That's the most actionable number: it can still be recovered. All disputed orders date from April–May 2020, so they're unresolved, not historic.
+- **Strong Q4 seasonality**: November is about 3.1× an average month in both full years. Like-for-like Jan–May revenue grew **+57% (2019)** and **+35% (2020)**.
 
-The project also breaks risk down at product-line level using revenue allocation logic.
+![Monthly revenue](reports/figures/02_monthly_revenue.png)
 
-### Headline metrics
-- **Allocated Revenue:** 9.76M
-- **Allocated Revenue at Risk %:** 6.05%
-- **Product Orders:** 298
+**Markets** — read the denominators
+- Sweden and Denmark top the failure ranking (14.3%), but each is **1 failed order out of 7**. 14 of 19 countries have fewer than 10 orders and are flagged rather than ranked.
+- Among markets with real volume, **UK (1/13)** and **Spain (2/36)** are the ones to watch. USA, the largest market (34% of revenue), failed 1 order in 103.
 
-### Key findings
-- **Ships** show the highest operational exposure by product-line risk percentage
-- **Vintage Cars** and **Planes** also show elevated revenue-risk patterns
-- **Classic Cars** contribute the highest allocated revenue, at roughly **3.6M+**
-- **Vintage Cars** contribute around **2.1M**
-- The highest-revenue product line is not necessarily the highest-risk one
+![Country risk](reports/figures/03_country_risk.png)
 
-### Why it matters
-This allows decision-makers to distinguish between:
-- categories that are commercially important
-- categories that are operationally vulnerable
+**Product lines**
+- Classic Cars = **39%** of revenue. Ships has the highest *lost* share (**8.1%** of its revenue cancelled).
+- Price realisation: Classic Cars sells about 4% *below* MSRP overall, while every other line averages *above* list price. That's a pricing conversation, not a fulfilment one.
 
-That makes prioritisation more intelligent than simple revenue ranking.
+**Customers**
+- **High-value customers (RFM): 25% of the base → 46% of revenue.**
+- **13 high-value customers have gone quiet** ("At Risk – High Value", £1.52M historic revenue). That's the win-back list.
+- Concentration: the top 2 accounts hold **16%** of revenue and the top 10 hold **30%**.
+
+![Value tiers](reports/figures/06_value_tier_share.png)
+
+**Revenue drivers** (stated carefully)
+- Revenue grows **in proportion to order count** (elasticity 1.06, 95% CI 0.82–1.31), and order value is similar across customers. **Growth comes from order frequency, not basket size.**
+- **No evidence that fulfilment issues reduce customer revenue** (p = 0.68). But only 10 of 89 customers were affected, so the test has low power: absence of evidence isn't evidence of absence.
+
+![Revenue drivers](reports/figures/09_revenue_drivers.png)
 
 ---
 
-## Customer Segmentation Insights
+## Architecture
 
-Python was used to build customer value and behaviour segments.
+```mermaid
+flowchart LR
+  A[(Raw CSV<br/>2,747 lines)] --> B[bronze<br/>raw text]
+  B --> C[silver<br/>typed order lines]
+  C --> D[gold<br/>star schema + KPI views]
+  D --> E[[Power BI<br/>PBIP · TMDL · 5 pages]]
+  A --> F[Python package<br/>src/autosales]
+  F --> G[RFM · K-Means · OLS]
+  F --> H[[Streamlit app]]
+  D -. same KPI definitions,<br/>checked in CI .- F
+```
 
-### RFM Value Tier split
-- **Mid Value:** 57.3%
-- **High Value:** 30.3%
-- **Low Value:** 12.4%
-
-### Revenue contribution by segment
-- **Mid Value customers:** 6,417,403
-- **High Value customers:** 1,682,711
-- **Low Value customers:** 1,660,107
-
-### Business meaning
-Mid Value customers are the largest group and also the strongest revenue engine.  
-This suggests that retention, service quality, and upsell strategies targeted at this group could have the biggest commercial payoff.
-
----
-
-## Shipping Reliability Segmentation
-
-Customers were also segmented by fulfilment quality.
-
-### Distribution
-- **Reliable:** 82.0%
-- **Critical:** 10.1%
-- **Unreliable:** 6.7%
-- **Minor Issues:** 1.1%
-
-### Business meaning
-Most customers experience reliable fulfilment, but a meaningful minority falls into risky service buckets.  
-This highlights where operational issues may affect customer experience and future commercial performance.
+| Layer | What | Where |
+|---|---|---|
+| SQL | Bronze → Silver → Gold, star schema, 11 analysis queries, **24 data-quality tests** | [`sql/`](sql/README.md) |
+| Python | Tested package: cleaning, KPIs, RFM, clustering, regression; reproducible pipeline | `src/autosales`, `scripts/run_pipeline.py` |
+| Notebooks | Narrative analysis (executed, relative paths) | `notebooks/01–04` |
+| Power BI | PBIP project: star-schema TMDL model, 32 documented measures, 5 report pages | [`powerbi/`](powerbi/README.md) |
+| App | 6-tab Streamlit dashboard with filters | `app.py` |
+| Quality | 27 pytest tests (Python, SQL-in-DuckDB, app smoke tests) + ruff, on every push | `tests/`, `.github/workflows/ci.yml` |
 
 ---
 
-## K-Means Business Clusters
+## Power BI report (PBIP, refreshed from SQL Server)
 
-Behaviour-based clustering identified four customer groups:
+Five pages on a star-schema model: one fact table at order-line grain plus date, customer, product, country and status dimensions, with 32 documented measures. Opened, refreshed and checked in Power BI Desktop. Every card matches the SQL and Python numbers exactly. Details: [`powerbi/README.md`](powerbi/README.md).
 
-- **VIP High Spenders:** 69.7%
-- **Frequent Small Buyers:** 15.7%
-- **Shipping Risk Buyers:** 12.4%
-- **Dormant / At Risk:** 2.2%
+![Executive overview](docs/images/powerbi/01_executive_overview.png)
 
-### Business meaning
-These clusters support different commercial actions:
-- retain and protect VIP spenders
-- grow frequent small buyers
-- address service issues for shipping-risk buyers
-- reactivate dormant accounts selectively
+<p float="left">
+<img src="docs/images/powerbi/02_order_fulfilment.png" width="49%"/>
+<img src="docs/images/powerbi/03_country_risk.png" width="49%"/>
+</p>
+<p float="left">
+<img src="docs/images/powerbi/04_product_lines.png" width="49%"/>
+<img src="docs/images/powerbi/05_customers.png" width="49%"/>
+</p>
 
----
-
-## Revenue Driver Analysis
-
-A regression model was used to estimate which factors are most strongly associated with revenue.
-
-### Model performance
-- **R² Score:** 0.971
-- **RMSE:** 23,200.08
-
-### Strongest drivers
-- **frequency_orders:** 23,686.03
-- **n_unique_products:** 3,267.27
-- **shipping_reliability:** 2,981.41
-- **recency_days:** 66.61
-- **avg_totalmsrp:** 15.54
-
-### Business meaning
-The strongest revenue signal comes from **repeat order behaviour**, followed by **product breadth** and **shipping reliability**.
-
-This is one of the most important findings in the project:
-**shipping reliability is not only an operations metric — it also has commercial relevance.**
+<sub>Screenshots were taken on a PC with English (India) regional settings, so large numbers use lakh grouping (£97,60,222 = £9,760,222). The model culture is en-GB.</sub>
 
 ---
 
-## SQL Data Modelling
+## v2: what an audit of v1 found and fixed
 
-The SQL layer was built using a **Bronze → Silver → Gold** framework.
+v1 of this project shipped with several analytical errors. Finding and fixing them was the most valuable part of the work. Full log: [docs/audit_v1_to_v2.md](docs/audit_v1_to_v2.md).
 
-### Bronze
-Raw source ingestion.
+| Area | v1 | v2 |
+|---|---|---|
+| RFM | F and M scores **inverted**: the top customer was "Low Value" | Fixed and unit-tested. High tier now averages £202k (was £62k) |
+| Product lines | Order revenue split **1/n** across lines (Trains +138%, Planes −25%) | Exact line-level sales. Revenue reconciles at every layer |
+| Revenue at risk | £590k, incl. normal *in-process* orders and already-cancelled revenue | **£251k** at risk + **£194k** lost, reported separately |
+| Clusters | k = 4 unjustified; the most active cluster labelled "Dormant" | k chosen by silhouette; labels generated from the data |
+| Regression | R² = 0.971 on 18 test customers (mostly arithmetic) | log-log OLS, robust CIs, 100-fit cross-validation |
+| Power BI | Date table **disconnected** (slicers did nothing), auto date/time, bidirectional bridge | Star schema in PBIP/TMDL, marked date table, parameterised source |
+| App | Crashed on Linux (`data` vs `Data`; Windows-only dependency) | Fixed, 6 tabs, smoke-tested in CI |
 
-### Silver
-Cleaning and standardisation, including:
-- date conversion
-- text standardisation
-- derived month fields
-- discount percentage
-- profit proxy
+<p float="left">
+<img src="reports/figures/05_rfm_v1_vs_v2.png" width="49%"/>
+<img src="reports/figures/04_product_line_v1_vs_v2.png" width="49%"/>
+</p>
 
-### Gold
-Business-ready views for:
-- order performance
-- monthly revenue
-- country operational KPIs
-- product-line operational KPIs
-- revenue-at-risk analysis
-
-### Important modelling logic
-Statuses such as:
-- SHIPPED
-- ON HOLD
-- IN PROCESS
-- CANCELLED
-- DISPUTED
-
-were transformed into business flags such as:
-- **Failure Flag**
-- **High-Risk Flag**
-- **Stuck Flag**
-
-This allowed the project to quantify:
-- failure rate
-- stuck order rate
-- high-risk order share
-- revenue at risk
-
-### Revenue allocation logic
-A bridge table with allocation weights was used to distribute order revenue across multiple product lines and avoid double counting.
-
-That makes the product-line analysis much more reliable.
+Unchanged between versions: revenue £9,760,221.71, 298 orders and the 2.35% failure rate. That confirms the raw data was read correctly in both.
 
 ---
 
-## Power BI Dashboard Structure
+## Run it
 
-The Power BI report is organised into four pages:
+```bash
+git clone https://github.com/hardeep282/Automobile-Sales-Logistics.git
+cd Automobile-Sales-Logistics
+python -m venv .venv && .venv\Scripts\activate        # macOS/Linux: source .venv/bin/activate
+pip install -r requirements-dev.txt
 
-### 1. Operations Overview
-Tracks:
-- Total Orders
-- Total Revenue
-- Shipping Reliability %
-- Failure %
-- Revenue at Risk
-- monthly KPI trends
+python scripts/run_pipeline.py      # rebuild data/processed + reports/figures
+pytest -q                           # 27 tests
+streamlit run app.py                # dashboard on http://localhost:8501
+```
 
-### 2. Country Risk
-Tracks:
-- order volume by country
-- revenue by country
-- failure %
-- stuck %
-- revenue-at-risk %
+- **SQL Server:** `powershell -ExecutionPolicy Bypass -File scripts\run_sql_pipeline.ps1` builds bronze → silver → gold and runs the 24 tests in one go (or run `sql/00` → `05` in SSMS). See [`sql/README.md`](sql/README.md).
+- **Power BI:** open `powerbi/Automobile_Sales_Logistics.pbip`, set the `ServerName` parameter, then refresh. See [`powerbi/README.md`](powerbi/README.md).
 
-### 3. Order Status Monitoring
-Tracks:
-- backlog trend
-- order status distribution
-- fulfilment behaviour over time
+## Repository structure
 
-### 4. Product / Revenue at Risk
-Tracks:
-- product-line risk %
-- allocated revenue
-- allocated revenue at risk
-- product-level exposure analysis
+```
+├── app.py                      Streamlit dashboard
+├── data/raw/                   source CSV (never modified)
+├── data/processed/             pipeline outputs used by the app
+├── sql/                        00–05 medallion scripts + tests
+├── src/autosales/              tested analytics package
+├── scripts/run_pipeline.py     one command to rebuild everything
+├── notebooks/                  01 audit & KPIs · 02 RFM · 03 clustering · 04 revenue drivers
+├── powerbi/                    PBIP project (TMDL model + PBIR report)
+├── reports/figures/            charts used in this README
+├── docs/                       KPI definitions · data dictionary · v1→v2 audit · Power BI screenshots (v2 + v1 'before')
+└── tests/                      pytest: pipeline, SQL-in-DuckDB, app
+```
 
----
+## Skills demonstrated
 
-## Dashboard Preview
-
-### Operations Overview
-![Operations Overview](screenshots/operations_overview.png)
-
-### Country Risk
-![Country Risk](screenshots/country_risk.png)
-
-
-### RFM Value Tier Distribution
-![RFM Value Tier](screenshots/rfm_value_tier.png)
-
-### K-Means Business Clusters
-![KMeans Cluster](screenshots/kmeans_business_clusters.png)
-
-### Revenue Drivers
-![Revenue Drivers](screenshots/revenue_drivers.png)
-
----
-
-
-## Repository Structure
-
-Automobile-Sales-Logistics/
-│
-├── Data/
-├── python/
-│   └── Notebooks/
-├── SQL/
-├── PowerBI/
-├── screenshots/
-├── streamlit/
-├── app.py
-├── requirements.txt
-└── README.md
-
-
-## Skills Demonstrated
-
-- SQL data modelling
-- KPI design
-- Revenue-at-risk analysis
-- Country risk reporting
-- Product-line operational exposure analysis
-- Customer segmentation
-- K-Means clustering
-- Regression modelling
-- Power BI dashboarding
-- Business storytelling with data
-
----
-
-## Final Positioning
-
-This project demonstrates how analytics can connect revenue performance, operational reliability, customer behaviour, and product-level exposure into one decision-support framework.
-
-It shows not just what happened, but also where risk sits, what is driving it, and which areas deserve action.
-
----
+SQL data modelling (medallion, star schema, window functions, recursive CTEs, data tests) · KPI design and governance · Power BI semantic modelling (TMDL, DAX time intelligence, PBIR) · customer segmentation (RFM, K-Means with model selection) · statistical inference (robust OLS, cross-validation, power) · reproducible analytics (packaging, CI, tests) · auditing and correcting analytical errors · business storytelling
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+MIT, see [LICENSE](LICENSE).
