@@ -113,6 +113,21 @@ Five pages on a star-schema model: one fact table at order-line grain plus date,
 
 ---
 
+## Streamlit app (runs locally)
+
+A 6-tab dashboard with Year / Region / Product-line filters: Overview · Fulfilment · Country risk · Product lines · Customers · Methodology. It uses the same tested KPI code as the pipeline, so its numbers match SQL and Power BI. Run it with `streamlit run app.py` (see [Run it](#run-it)) and open http://localhost:8501.
+
+![Streamlit overview](docs/images/streamlit/01_overview.png)
+
+<p float="left">
+<img src="docs/images/streamlit/02_fulfilment.png" width="49%"/>
+<img src="docs/images/streamlit/03_country_risk.png" width="49%"/>
+</p>
+
+![Customers: value tiers, RFM segments and K-Means clusters](docs/images/streamlit/04_customers.png)
+
+---
+
 ## v2: what an audit of v1 found and fixed
 
 v1 of this project shipped with several analytical errors. Finding and fixing them was the most valuable part of the work. Full log: [docs/audit_v1_to_v2.md](docs/audit_v1_to_v2.md).
@@ -164,7 +179,7 @@ streamlit run app.py                # dashboard on http://localhost:8501
 ├── notebooks/                  01 audit & KPIs · 02 RFM · 03 clustering · 04 revenue drivers
 ├── powerbi/                    PBIP project (TMDL model + PBIR report)
 ├── reports/figures/            charts used in this README
-├── docs/                       KPI definitions · data dictionary · v1→v2 audit · Power BI screenshots (v2 + v1 'before')
+├── docs/                       KPI definitions · data dictionary · v1→v2 audit · Power BI (v2 + v1 'before') and Streamlit screenshots
 └── tests/                      pytest: pipeline, SQL-in-DuckDB, app
 ```
 
