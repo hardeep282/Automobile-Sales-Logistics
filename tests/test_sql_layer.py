@@ -52,7 +52,7 @@ def con():
 
 
 def test_every_sql_batch_parses_as_tsql():
-    for f in sorted(SQL_DIR.glob("*.sql")):
+    for f in sorted(SQL_DIR.glob("[0-9][0-9]_*.sql")):  # run_all.sql is SQLCMD syntax
         for body in _batches(f):
             sqlglot.parse(body, read="tsql")
 

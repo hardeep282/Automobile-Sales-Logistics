@@ -1,6 +1,16 @@
 # SQL layer (SQL Server, medallion architecture)
 
-Run in order in SSMS or Azure Data Studio, connected to your instance (e.g. `.\SQLEXPRESS`):
+**Quickest: one command from the repo folder (PowerShell)**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_sql_pipeline.ps1            # default server .\SQLEXPRESS
+powershell -ExecutionPolicy Bypass -File scripts\run_sql_pipeline.ps1 -Server "MYPC\SQLEXPRESS" -IncludeAnalysis
+```
+It runs 00 → 01 → 02 → 03 → 05, points the bronze load at the repo's CSV, falls back to loading the CSV from PowerShell if SQL Server can't read your folder, and writes `logs/sql_pipeline_last_run.txt`.
+
+**In SSMS with one Execute:** open `run_all.sql`, tick **Query → SQLCMD Mode**, press F5.
+
+**Or one script at a time** in SSMS / Azure Data Studio, connected to your instance (e.g. `.\SQLEXPRESS`):
 
 | Script | Creates | Notes |
 |---|---|---|

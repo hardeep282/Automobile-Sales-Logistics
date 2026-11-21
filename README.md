@@ -130,7 +130,7 @@ pytest -q                           # 26 tests
 streamlit run app.py                # dashboard on http://localhost:8501
 ```
 
-- **SQL Server:** run `sql/00` → `sql/05` (edit the CSV path in `01`). See [`sql/README.md`](sql/README.md).
+- **SQL Server:** `powershell -ExecutionPolicy Bypass -File scripts\run_sql_pipeline.ps1` builds bronze → silver → gold and runs the 23 tests in one go (or run `sql/00` → `05` in SSMS). See [`sql/README.md`](sql/README.md).
 - **Power BI:** open `powerbi/Automobile_Sales_Logistics.pbip`, set the `ServerName` parameter, then refresh. See [`powerbi/README.md`](powerbi/README.md).
 
 ## Repository structure
