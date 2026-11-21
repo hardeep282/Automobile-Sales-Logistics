@@ -17,3 +17,4 @@ relationship d0387751-1f73-5861-b1eb-42e2cf611c01
 relationship e02f35d6-364a-57bf-a22a-7fb24ea31d22
 	fromColumn: fact_order_lines.status
 	toColumn: dim_status.status
+

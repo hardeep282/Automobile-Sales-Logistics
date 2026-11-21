@@ -1,20 +1,24 @@
 table dim_product
+	lineageTag: 29d04afb-a76d-48f4-a888-f210f1bb4570
 
 	column product_code
 		dataType: string
+		isKey
+		lineageTag: 87c2816c-4b1e-44c6-ba6e-566a855ae775
 		summarizeBy: none
 		sourceColumn: product_code
-		isKey
 
 	column product_line
 		dataType: string
+		lineageTag: cf393f75-983e-4b49-b205-a183b1a2af42
 		summarizeBy: none
 		sourceColumn: product_line
 
 	/// Manufacturer's suggested retail (list) price.
 	column msrp
-		dataType: decimal
+		dataType: double
 		formatString: \£#,0.00
+		lineageTag: aa7ed580-36bd-4164-8607-0ac6a52bc895
 		summarizeBy: none
 		sourceColumn: msrp
 
@@ -26,3 +30,4 @@ table dim_product
 					Data = Source{[Schema = "gold", Item = "dim_product"]}[Data]
 				in
 					Data
+

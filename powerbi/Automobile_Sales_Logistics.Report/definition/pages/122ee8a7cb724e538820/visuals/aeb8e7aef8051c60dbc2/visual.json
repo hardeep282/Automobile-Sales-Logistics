@@ -31,20 +31,6 @@
             },
             {
               "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_country"
-                    }
-                  },
-                  "Property": "region"
-                }
-              },
-              "queryRef": "dim_country.region",
-              "nativeQueryRef": "region"
-            },
-            {
-              "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {

@@ -77,11 +77,13 @@ Each measure has a description (hover over it in the field list). The definition
 
 Every page has Year / Region / Product line slicers.
 
-## Validation done before commit
+## Validation
 
-- All 70 PBIR / PBIP / platform JSON files validate against Microsoft's published schemas (`github.com/microsoft/json-schemas`).
-- Every column, measure, sort-by column and relationship referenced in TMDL and in the report resolves to an object in the model.
-- The `sourceColumn`s of every imported table exactly match the columns of the matching `gold.*` view (checked by running the SQL in DuckDB).
-- Not possible in CI: opening in Power BI Desktop itself (Windows only). The first open/refresh above is the final check.
+- **Opened, refreshed and saved in Power BI Desktop (Nov 2026)** against SQL Server Express with no errors. The files in this folder are Desktop's own serialisation (lineage tags, `diagramLayout.json`).
+- Every headline number was checked with DAX queries against the open model and matches SQL and Python to the penny: £9,760,221.71 · 298 orders · fulfilment 96.2% · at risk £251,192.05 · lost £194,487.48 · Trains £226,243.47 · 2020 vs Jan–May 2019 +34.7%.
+- The PBIR / PBIP JSON validates against Microsoft's published schemas (`github.com/microsoft/json-schemas`). One visual uses `visualContainer/2.14.0`, which Desktop writes but Microsoft hasn't published yet.
+- Every column, measure, sort-by column and relationship referenced in TMDL and the report resolves to an object in the model, and the `sourceColumn`s match the `gold.*` views.
+
+> Numbers in the screenshots use Indian digit grouping (e.g. £97,60,222) because they were taken on a PC with English (India) regional settings. The model culture is en-GB, so a UK machine or Power BI Service shows £9,760,222.
 
 **Industry equivalent:** PBIP + TMDL in git, with deployment pipelines / Fabric Git integration. Tabular Editor and the Best Practice Analyzer are often used to lint the model.

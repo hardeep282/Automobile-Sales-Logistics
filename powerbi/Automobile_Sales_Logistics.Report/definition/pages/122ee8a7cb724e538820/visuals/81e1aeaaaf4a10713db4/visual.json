@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "81e1aeaaaf4a10713db4",
   "position": {
     "x": 16,
@@ -31,6 +31,24 @@
             }
           ]
         },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Orders"
+                }
+              },
+              "queryRef": "_Measures.Total Orders",
+              "nativeQueryRef": "Total Orders"
+            }
+          ]
+        },
         "X": {
           "projections": [
             {
@@ -45,7 +63,8 @@
                 }
               },
               "queryRef": "_Measures.Total Revenue",
-              "nativeQueryRef": "Total Revenue"
+              "nativeQueryRef": "Total Revenue",
+              "active": true
             }
           ]
         },
@@ -64,24 +83,6 @@
               },
               "queryRef": "_Measures.Failure Rate",
               "nativeQueryRef": "Failure Rate"
-            }
-          ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total Orders"
-                }
-              },
-              "queryRef": "_Measures.Total Orders",
-              "nativeQueryRef": "Total Orders"
             }
           ]
         }

@@ -1,167 +1,201 @@
 /// Home table for all measures. Folders: Revenue, Fulfilment, Revenue Risk, Time Intelligence, Customers.
 table _Measures
+	lineageTag: 791d30ac-6dd6-496d-89d3-5dcc1dd1ae6a
 
 	/// Sum of line-level sales. Exact at any grain, including product line (no allocation).
 	measure 'Total Revenue' = SUM ( fact_order_lines[sales] )
 		formatString: \£#,0
 		displayFolder: 1. Revenue
+		lineageTag: c840be80-0a85-476e-9a4a-424275d8605c
 
 	/// Number of distinct orders.
 	measure 'Total Orders' = DISTINCTCOUNT ( fact_order_lines[order_number] )
 		formatString: #,0
 		displayFolder: 1. Revenue
+		lineageTag: 272c8a01-3586-4fe4-9b86-95feee268f27
 
 	/// Number of order lines.
 	measure 'Order Lines' = COUNTROWS ( fact_order_lines )
 		formatString: #,0
 		displayFolder: 1. Revenue
+		lineageTag: a506193e-e158-494f-ad9f-ef6eb6144e5e
 
 	/// Units ordered.
-	measure 'Units' = SUM ( fact_order_lines[quantity] )
+	measure Units = SUM ( fact_order_lines[quantity] )
 		formatString: #,0
 		displayFolder: 1. Revenue
+		lineageTag: 04ff6490-c177-4510-9c8f-6e901c529a0b
 
 	/// Total Revenue / Total Orders.
 	measure 'Avg Order Value' = DIVIDE ( [Total Revenue], [Total Orders] )
 		formatString: \£#,0
 		displayFolder: 1. Revenue
+		lineageTag: fa82feff-97aa-49a4-9136-54dc5ce7d9de
 
 	/// Customers with at least one order in the current filter context.
 	measure 'Active Customers' = DISTINCTCOUNT ( fact_order_lines[customer_name] )
 		formatString: #,0
 		displayFolder: 1. Revenue
+		lineageTag: 016968eb-3cbc-46a7-baac-f9a1a1f14d11
 
 	/// Share of revenue within the current visual / slicer selection.
 	measure 'Revenue Share %' = DIVIDE ( [Total Revenue], CALCULATE ( [Total Revenue], ALLSELECTED () ) )
 		formatString: 0.0%
 		displayFolder: 1. Revenue
+		lineageTag: f7686fda-aa56-4a81-a5b1-459c559010e8
 
 	/// Price realisation vs MSRP. Positive = sold above list price on average.
 	measure 'Revenue vs List %' = DIVIDE ( [Total Revenue], SUM ( fact_order_lines[list_value] ) ) - 1
 		formatString: +0.0%;-0.0%;0.0%
 		displayFolder: 1. Revenue
+		lineageTag: 82bf4a24-8741-4cdf-9760-5a7e0a0c6bf3
 
 	/// Orders Shipped or Resolved.
 	measure 'Fulfilled Orders' = CALCULATE ( [Total Orders], dim_status[is_fulfilled] = 1 )
 		formatString: #,0
 		displayFolder: 2. Fulfilment
+		lineageTag: 0965e7ef-2e53-4c1c-95fd-0b178bc470b1
 
 	/// Orders In Process: normal pipeline (all dated in the last 3 days of the data).
 	measure 'Open Orders' = CALCULATE ( [Total Orders], dim_status[is_open] = 1 )
 		formatString: #,0
 		displayFolder: 2. Fulfilment
+		lineageTag: c97eccf6-4c24-410b-b5be-04228e0350c4
 
 	/// Orders On Hold or Disputed: revenue not yet secured.
 	measure 'At Risk Orders' = CALCULATE ( [Total Orders], dim_status[is_at_risk] = 1 )
 		formatString: #,0
 		displayFolder: 2. Fulfilment
+		lineageTag: fc3d6455-6ec0-4265-b4af-8a8eecb420f8
 
 	/// Cancelled orders.
 	measure 'Lost Orders' = CALCULATE ( [Total Orders], dim_status[is_lost] = 1 )
 		formatString: #,0
 		displayFolder: 2. Fulfilment
+		lineageTag: a97544eb-b191-4972-b73d-7a9e04921dfa
 
 	/// Cancelled or Disputed orders (kept for continuity with the v1 failure rate).
 	measure 'Failed Orders' = CALCULATE ( [Total Orders], dim_status[is_failed] = 1 )
 		formatString: #,0
 		displayFolder: 2. Fulfilment
+		lineageTag: 84b7a57f-cb83-49fa-84bf-2a3c9b653ce9
 
 	/// Any order that was not a clean shipment (Resolved, On Hold, Disputed, Cancelled).
 	measure 'Orders With Issue' = CALCULATE ( [Total Orders], dim_status[had_issue] = 1 )
 		formatString: #,0
 		displayFolder: 2. Fulfilment
+		lineageTag: dc355914-96a9-4c21-aead-f7d6997f3f44
 
 	/// Orders that have reached an outcome (excludes Open).
 	measure 'Closed Orders' = [Total Orders] - [Open Orders]
 		formatString: #,0
 		displayFolder: 2. Fulfilment
+		lineageTag: 7a9331b8-2e90-4469-b828-6d818e0f5eac
 
 	/// Fulfilled / Closed orders. Replaces v1 'Shipping Reliability %', which counted open orders as failures.
 	measure 'Fulfilment Rate' = DIVIDE ( [Fulfilled Orders], [Closed Orders] )
 		formatString: 0.0%
 		displayFolder: 2. Fulfilment
+		lineageTag: 3fc96024-9a20-4902-b2b0-9b03fe89d313
 
 	/// Orders with any issue / Closed orders.
 	measure 'Issue Rate' = DIVIDE ( [Orders With Issue], [Closed Orders] )
 		formatString: 0.0%
 		displayFolder: 2. Fulfilment
+		lineageTag: 1b7ab247-836e-4001-90fc-b03d29ae24e4
 
 	/// (Cancelled + Disputed) / Total orders.
 	measure 'Failure Rate' = DIVIDE ( [Failed Orders], [Total Orders] )
 		formatString: 0.0%
 		displayFolder: 2. Fulfilment
+		lineageTag: 212eb3fd-774d-4e3e-bcae-5c695e646058
 
 	/// Failed orders out of total orders, so small denominators are visible.
 	measure 'Failed of Total' = FORMAT ( [Failed Orders] + 0, "0" ) & " / " & FORMAT ( [Total Orders] + 0, "0" )
 		displayFolder: 2. Fulfilment
+		lineageTag: f3be95b1-8aae-43f9-9794-8c63070f9cb6
 
-	/// Fewer than 10 orders: one order moves the rate by more than 10 points.
-	measure 'Sample Size Flag' = IF ( [Total Orders] < 10, "Low sample (<10 orders)", "OK" )
+	/// "Low sample" = fewer than 10 orders: one order moves the rate by more than 10 points.
+	measure 'Sample Size Flag' = IF ( [Total Orders] < 10, "Low sample", "OK" )
 		displayFolder: 2. Fulfilment
+		lineageTag: f8b5f022-ec45-49f3-a814-e8a3fd1669c9
 
 	/// Revenue on On Hold and Disputed orders - still recoverable.
 	measure 'Revenue at Risk' = CALCULATE ( [Total Revenue], dim_status[is_at_risk] = 1 )
 		formatString: \£#,0
 		displayFolder: 3. Revenue Risk
+		lineageTag: f2f1551d-ce10-4205-a44d-3c2dca332df8
 
 	/// Revenue at Risk / Total Revenue.
 	measure 'Revenue at Risk %' = DIVIDE ( [Revenue at Risk], [Total Revenue] )
 		formatString: 0.0%
 		displayFolder: 3. Revenue Risk
+		lineageTag: a5f5ca76-589d-4b0b-a03d-e1681e91d81d
 
 	/// Revenue on Cancelled orders - already lost.
 	measure 'Revenue Lost' = CALCULATE ( [Total Revenue], dim_status[is_lost] = 1 )
 		formatString: \£#,0
 		displayFolder: 3. Revenue Risk
+		lineageTag: 85cbf814-3470-41c8-b419-9eb291491861
 
 	/// Revenue Lost / Total Revenue.
 	measure 'Revenue Lost %' = DIVIDE ( [Revenue Lost], [Total Revenue] )
 		formatString: 0.0%
 		displayFolder: 3. Revenue Risk
+		lineageTag: 2651867b-2d2f-4b2a-9f3c-4d3b8b06ae20
 
 	/// Revenue on In Process orders.
 	measure 'Open Pipeline Revenue' = CALCULATE ( [Total Revenue], dim_status[is_open] = 1 )
 		formatString: \£#,0
 		displayFolder: 3. Revenue Risk
+		lineageTag: 500ae841-5da7-476f-a615-336ffe9b825b
 
 	/// Year-to-date revenue.
 	measure 'Revenue YTD' = TOTALYTD ( [Total Revenue], dim_date[Date] )
 		formatString: \£#,0
 		displayFolder: 4. Time Intelligence
+		lineageTag: ed49cb31-a797-4dda-9a1e-b1828f8363eb
 
 	/// Revenue for the same period last year, limited to dates that have data so a partial 2020 compares like-for-like.
 	measure 'Revenue PY' = CALCULATE ( [Total Revenue], CALCULATETABLE ( SAMEPERIODLASTYEAR ( dim_date[Date] ), dim_date[Has Sales] = TRUE () ) )
 		formatString: \£#,0
 		displayFolder: 4. Time Intelligence
+		lineageTag: 09807bd6-b28a-4c6b-bfa1-3ea9b8df55f9
 
 	/// Year-over-year growth on comparable periods.
 	measure 'Revenue YoY %' = VAR _py = [Revenue PY] RETURN IF ( NOT ISBLANK ( _py ), DIVIDE ( [Total Revenue] - _py, _py ) )
 		formatString: +0.0%;-0.0%;0.0%
 		displayFolder: 4. Time Intelligence
+		lineageTag: 8817f49b-903c-4d62-9de9-77cb82b3b339
 
 	/// Revenue in the previous month.
 	measure 'Revenue PM' = CALCULATE ( [Total Revenue], DATEADD ( dim_date[Date], -1, MONTH ) )
 		formatString: \£#,0
 		displayFolder: 4. Time Intelligence
+		lineageTag: d047887e-c345-408d-b923-3bf684b08645
 
 	/// Month-over-month growth.
 	measure 'Revenue MoM %' = VAR _pm = [Revenue PM] RETURN IF ( NOT ISBLANK ( _pm ), DIVIDE ( [Total Revenue] - _pm, _pm ) )
 		formatString: +0.0%;-0.0%;0.0%
 		displayFolder: 4. Time Intelligence
+		lineageTag: 413ff3dc-84d0-4622-bee7-a94d17e9ba63
 
 	/// Most recent order date in context.
 	measure 'Last Order Date' = MAX ( fact_order_lines[order_date] )
 		formatString: dd mmm yyyy
 		displayFolder: 5. Customers
+		lineageTag: 345dc796-da84-462c-b7b0-8781256885c2
 
 	/// Recency vs the day after the last order in the data (01 Jun 2020).
 	measure 'Days Since Last Order' = VAR _ref = CALCULATE ( MAX ( fact_order_lines[order_date] ), REMOVEFILTERS () ) + 1 RETURN IF ( NOT ISBLANK ( [Last Order Date] ), DATEDIFF ( [Last Order Date], _ref, DAY ) )
 		formatString: #,0
 		displayFolder: 5. Customers
+		lineageTag: 846ae560-5892-4961-8ede-34b86c67bd87
 
 	column Placeholder
 		dataType: int64
 		isHidden
+		lineageTag: c56f7873-aa4b-45db-9d56-30924f9a23d3
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Placeholder]
@@ -169,3 +203,4 @@ table _Measures
 	partition _Measures = calculated
 		mode: import
 		source = ROW ( "Placeholder", 0 )
+

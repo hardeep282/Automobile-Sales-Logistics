@@ -1,99 +1,122 @@
 /// One row per order line (gold.fact_order_lines). Product-line revenue is exact at this grain.
 table fact_order_lines
+	lineageTag: 75d85483-c6aa-4f75-9bfe-59e2ff3f6e59
 
 	/// Order identifier. Count orders with DISTINCTCOUNT.
 	column order_number
 		dataType: int64
 		formatString: 0
+		lineageTag: ecfe6707-8a74-4194-a052-9af642d81e0a
 		summarizeBy: none
 		sourceColumn: order_number
 
 	column order_line_number
 		dataType: int64
-		formatString: 0
 		isHidden
+		formatString: 0
+		lineageTag: c6703e04-ff46-49ee-91f9-bd84e439a80e
 		summarizeBy: none
 		sourceColumn: order_line_number
 
 	/// Relationship key to dim_date.
 	column order_date
 		dataType: dateTime
-		formatString: dd mmm yyyy
 		isHidden
+		formatString: dd mmm yyyy
+		lineageTag: 65bfdb1f-e937-4fa3-b7a2-33462fa724a3
 		summarizeBy: none
 		sourceColumn: order_date
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column customer_name
 		dataType: string
 		isHidden
+		lineageTag: dca836f2-024f-4c76-942e-9631796a3f88
 		summarizeBy: none
 		sourceColumn: customer_name
 
 	column product_code
 		dataType: string
 		isHidden
+		lineageTag: e0e9d69f-d383-4949-8b67-be076d29e13c
 		summarizeBy: none
 		sourceColumn: product_code
 
 	column country
 		dataType: string
 		isHidden
+		lineageTag: f36dfa91-4daa-4975-a26f-574b5de549ea
 		summarizeBy: none
 		sourceColumn: country
 
 	column status
 		dataType: string
 		isHidden
+		lineageTag: bf1d4fce-92d4-46af-9c8e-6bb6e48f641d
 		summarizeBy: none
 		sourceColumn: status
 
 	/// Small / Medium / Large, assigned per line in the source.
 	column deal_size
 		dataType: string
+		lineageTag: 0ea1eb92-3301-4d7a-9914-a4830ebe6da2
 		summarizeBy: none
 		sourceColumn: deal_size
 
 	column quantity
 		dataType: int64
-		formatString: #,0
 		isHidden
+		formatString: #,0
+		lineageTag: 0bc80cbb-9fec-4f3b-9f90-5e97d8a1536d
 		summarizeBy: sum
 		sourceColumn: quantity
 
 	column price_each
-		dataType: decimal
-		formatString: \£#,0.00
+		dataType: double
 		isHidden
-		summarizeBy: none
+		formatString: \£#,0.00
+		lineageTag: 1621fc76-f337-47fc-860c-09972aca5032
+		summarizeBy: sum
 		sourceColumn: price_each
 
+		annotation SummarizationSetBy = Automatic
+
 	column msrp
-		dataType: decimal
-		formatString: \£#,0.00
+		dataType: double
 		isHidden
-		summarizeBy: none
+		formatString: \£#,0.00
+		lineageTag: 297920a9-0d98-4a59-b3ad-16cd76eabc0d
+		summarizeBy: sum
 		sourceColumn: msrp
 
+		annotation SummarizationSetBy = Automatic
+
 	column sales
-		dataType: decimal
-		formatString: \£#,0.00
+		dataType: double
 		isHidden
+		formatString: \£#,0.00
+		lineageTag: fb86a2d1-aea1-4607-897d-01105630b6dd
 		summarizeBy: sum
 		sourceColumn: sales
 
 	column list_value
-		dataType: decimal
-		formatString: \£#,0.00
+		dataType: double
 		isHidden
+		formatString: \£#,0.00
+		lineageTag: 97d2b8f8-08e4-4343-8af5-d0dda8eddaec
 		summarizeBy: sum
 		sourceColumn: list_value
 
 	column price_vs_msrp_pct
-		dataType: decimal
-		formatString: 0.0%
+		dataType: double
 		isHidden
-		summarizeBy: none
+		formatString: 0.0%
+		lineageTag: 4f391fda-e8df-43da-b0e6-32638250ec9a
+		summarizeBy: sum
 		sourceColumn: price_vs_msrp_pct
+
+		annotation SummarizationSetBy = Automatic
 
 	partition fact_order_lines = m
 		mode: import
@@ -103,3 +126,4 @@ table fact_order_lines
 					Data = Source{[Schema = "gold", Item = "fact_order_lines"]}[Data]
 				in
 					Data
+

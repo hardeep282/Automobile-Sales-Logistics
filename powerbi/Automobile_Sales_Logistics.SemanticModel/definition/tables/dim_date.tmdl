@@ -3,39 +3,45 @@
 /// "Has Sales" is TRUE up to the last order date (31 May 2020) so prior-year
 /// comparisons only use the same partial period.
 table dim_date
+	lineageTag: d17c7004-a2b2-4d47-be44-136b4f0fea9f
 	dataCategory: Time
 
 	column Date
 		dataType: dateTime
+		isKey
 		formatString: dd mmm yyyy
+		lineageTag: 7e765a33-dafe-4f1d-8d6f-bd4f34313914
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Date]
-		isKey
 
 	column Year
 		dataType: int64
 		formatString: 0
+		lineageTag: 8d5c3c4e-3f59-41f4-9a86-bc480bca1569
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Year]
 
 	column Quarter
 		dataType: string
+		lineageTag: f6c55e27-4f4f-422b-b46b-0849419c1084
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Quarter]
 
 	column 'Month Number'
 		dataType: int64
-		formatString: 0
 		isHidden
+		formatString: 0
+		lineageTag: de4522b0-9c2b-4dc9-93d5-d612b1966d63
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Month Number]
 
 	column Month
 		dataType: string
+		lineageTag: c9f35c8a-486a-476f-bf20-fa3173357cc4
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Month]
@@ -43,6 +49,7 @@ table dim_date
 
 	column 'Year Month'
 		dataType: string
+		lineageTag: 117003e3-652a-4e18-9226-26539f0ee949
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Year Month]
@@ -50,8 +57,9 @@ table dim_date
 
 	column 'Year Month Sort'
 		dataType: int64
-		formatString: 0
 		isHidden
+		formatString: 0
+		lineageTag: 0582f5be-5a08-49b3-b956-afb433cf0d6c
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Year Month Sort]
@@ -59,6 +67,7 @@ table dim_date
 	column 'Month Start'
 		dataType: dateTime
 		formatString: mmm yyyy
+		lineageTag: 4fac80c5-cced-42d0-bd68-699d9698db14
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Month Start]
@@ -66,6 +75,7 @@ table dim_date
 	column 'Has Sales'
 		dataType: boolean
 		isHidden
+		lineageTag: 6c263797-236a-49d7-8957-2583eebd279c
 		summarizeBy: none
 		isNameInferred
 		sourceColumn: [Has Sales]
@@ -87,3 +97,4 @@ table dim_date
 						"Month Start", DATE ( YEAR ( [Date] ), MONTH ( [Date] ), 1 ),
 						"Has Sales", [Date] <= _last
 					)
+
