@@ -1,0 +1,10 @@
+/// SQL Server instance that hosts autosales_DB (run sql/00–03 first).
+/// Change in Power BI Desktop: Transform data > Edit parameters.
+expression ServerName = ".\SQLEXPRESS" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+
+	annotation PBI_ResultType = Text
+
+/// Database created by sql/00_setup_database.sql.
+expression DatabaseName = "autosales_DB" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+
+	annotation PBI_ResultType = Text

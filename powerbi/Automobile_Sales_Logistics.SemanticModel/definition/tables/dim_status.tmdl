@@ -1,0 +1,73 @@
+/// Order status mapped to a business status group (single definition shared with SQL and Python).
+table dim_status
+
+	column status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: status
+		sortByColumn: status_sort
+		isKey
+
+	/// Fulfilled (Shipped, Resolved) | Open (In Process) | At Risk (On Hold, Disputed) | Lost (Cancelled).
+	column status_group
+		dataType: string
+		summarizeBy: none
+		sourceColumn: status_group
+		sortByColumn: status_group_sort
+
+	column status_sort
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: status_sort
+
+	column status_group_sort
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: status_group_sort
+
+	column is_fulfilled
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: is_fulfilled
+
+	column is_open
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: is_open
+
+	column is_at_risk
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: is_at_risk
+
+	column is_lost
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: is_lost
+
+	column is_failed
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: is_failed
+
+	column had_issue
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: had_issue
+
+	partition dim_status = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database(ServerName, DatabaseName),
+					Data = Source{[Schema = "gold", Item = "dim_status"]}[Data]
+				in
+					Data

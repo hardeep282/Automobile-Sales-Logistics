@@ -1,0 +1,25 @@
+{
+  "headline": {
+    "total_orders": 298,
+    "total_revenue": 9760221.71,
+    "avg_order_value": 32752.421846,
+    "fulfilled_orders": 281,
+    "open_orders": 6,
+    "at_risk_orders": 7,
+    "lost_orders": 4,
+    "failed_orders": 7,
+    "fulfilment_rate": 0.962329,
+    "issue_rate": 0.05137,
+    "failure_rate": 0.02349,
+    "revenue_at_risk": 251192.05,
+    "revenue_at_risk_pct": 0.025736,
+    "revenue_lost": 194487.48,
+    "open_pipeline_revenue": 144729.96
+  },
+  "date_range": [
+    "2018-01-06",
+    "2020-05-31"
+  ],
+  "n_customers": 89,
+  "customers_with_order_at_risk_or_lost": 10
+}

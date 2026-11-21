@@ -1,0 +1,171 @@
+/// Home table for all measures. Folders: Revenue, Fulfilment, Revenue Risk, Time Intelligence, Customers.
+table _Measures
+
+	/// Sum of line-level sales. Exact at any grain, including product line (no allocation).
+	measure 'Total Revenue' = SUM ( fact_order_lines[sales] )
+		formatString: \£#,0
+		displayFolder: 1. Revenue
+
+	/// Number of distinct orders.
+	measure 'Total Orders' = DISTINCTCOUNT ( fact_order_lines[order_number] )
+		formatString: #,0
+		displayFolder: 1. Revenue
+
+	/// Number of order lines.
+	measure 'Order Lines' = COUNTROWS ( fact_order_lines )
+		formatString: #,0
+		displayFolder: 1. Revenue
+
+	/// Units ordered.
+	measure 'Units' = SUM ( fact_order_lines[quantity] )
+		formatString: #,0
+		displayFolder: 1. Revenue
+
+	/// Total Revenue / Total Orders.
+	measure 'Avg Order Value' = DIVIDE ( [Total Revenue], [Total Orders] )
+		formatString: \£#,0
+		displayFolder: 1. Revenue
+
+	/// Customers with at least one order in the current filter context.
+	measure 'Active Customers' = DISTINCTCOUNT ( fact_order_lines[customer_name] )
+		formatString: #,0
+		displayFolder: 1. Revenue
+
+	/// Share of revenue within the current visual / slicer selection.
+	measure 'Revenue Share %' = DIVIDE ( [Total Revenue], CALCULATE ( [Total Revenue], ALLSELECTED () ) )
+		formatString: 0.0%
+		displayFolder: 1. Revenue
+
+	/// Price realisation vs MSRP. Positive = sold above list price on average.
+	measure 'Revenue vs List %' = DIVIDE ( [Total Revenue], SUM ( fact_order_lines[list_value] ) ) - 1
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 1. Revenue
+
+	/// Orders Shipped or Resolved.
+	measure 'Fulfilled Orders' = CALCULATE ( [Total Orders], dim_status[is_fulfilled] = 1 )
+		formatString: #,0
+		displayFolder: 2. Fulfilment
+
+	/// Orders In Process: normal pipeline (all dated in the last 3 days of the data).
+	measure 'Open Orders' = CALCULATE ( [Total Orders], dim_status[is_open] = 1 )
+		formatString: #,0
+		displayFolder: 2. Fulfilment
+
+	/// Orders On Hold or Disputed: revenue not yet secured.
+	measure 'At Risk Orders' = CALCULATE ( [Total Orders], dim_status[is_at_risk] = 1 )
+		formatString: #,0
+		displayFolder: 2. Fulfilment
+
+	/// Cancelled orders.
+	measure 'Lost Orders' = CALCULATE ( [Total Orders], dim_status[is_lost] = 1 )
+		formatString: #,0
+		displayFolder: 2. Fulfilment
+
+	/// Cancelled or Disputed orders (kept for continuity with the v1 failure rate).
+	measure 'Failed Orders' = CALCULATE ( [Total Orders], dim_status[is_failed] = 1 )
+		formatString: #,0
+		displayFolder: 2. Fulfilment
+
+	/// Any order that was not a clean shipment (Resolved, On Hold, Disputed, Cancelled).
+	measure 'Orders With Issue' = CALCULATE ( [Total Orders], dim_status[had_issue] = 1 )
+		formatString: #,0
+		displayFolder: 2. Fulfilment
+
+	/// Orders that have reached an outcome (excludes Open).
+	measure 'Closed Orders' = [Total Orders] - [Open Orders]
+		formatString: #,0
+		displayFolder: 2. Fulfilment
+
+	/// Fulfilled / Closed orders. Replaces v1 'Shipping Reliability %', which counted open orders as failures.
+	measure 'Fulfilment Rate' = DIVIDE ( [Fulfilled Orders], [Closed Orders] )
+		formatString: 0.0%
+		displayFolder: 2. Fulfilment
+
+	/// Orders with any issue / Closed orders.
+	measure 'Issue Rate' = DIVIDE ( [Orders With Issue], [Closed Orders] )
+		formatString: 0.0%
+		displayFolder: 2. Fulfilment
+
+	/// (Cancelled + Disputed) / Total orders.
+	measure 'Failure Rate' = DIVIDE ( [Failed Orders], [Total Orders] )
+		formatString: 0.0%
+		displayFolder: 2. Fulfilment
+
+	/// Failed orders out of total orders, so small denominators are visible.
+	measure 'Failed of Total' = FORMAT ( [Failed Orders] + 0, "0" ) & " / " & FORMAT ( [Total Orders] + 0, "0" )
+		displayFolder: 2. Fulfilment
+
+	/// Fewer than 10 orders: one order moves the rate by more than 10 points.
+	measure 'Sample Size Flag' = IF ( [Total Orders] < 10, "Low sample (<10 orders)", "OK" )
+		displayFolder: 2. Fulfilment
+
+	/// Revenue on On Hold and Disputed orders - still recoverable.
+	measure 'Revenue at Risk' = CALCULATE ( [Total Revenue], dim_status[is_at_risk] = 1 )
+		formatString: \£#,0
+		displayFolder: 3. Revenue Risk
+
+	/// Revenue at Risk / Total Revenue.
+	measure 'Revenue at Risk %' = DIVIDE ( [Revenue at Risk], [Total Revenue] )
+		formatString: 0.0%
+		displayFolder: 3. Revenue Risk
+
+	/// Revenue on Cancelled orders - already lost.
+	measure 'Revenue Lost' = CALCULATE ( [Total Revenue], dim_status[is_lost] = 1 )
+		formatString: \£#,0
+		displayFolder: 3. Revenue Risk
+
+	/// Revenue Lost / Total Revenue.
+	measure 'Revenue Lost %' = DIVIDE ( [Revenue Lost], [Total Revenue] )
+		formatString: 0.0%
+		displayFolder: 3. Revenue Risk
+
+	/// Revenue on In Process orders.
+	measure 'Open Pipeline Revenue' = CALCULATE ( [Total Revenue], dim_status[is_open] = 1 )
+		formatString: \£#,0
+		displayFolder: 3. Revenue Risk
+
+	/// Year-to-date revenue.
+	measure 'Revenue YTD' = TOTALYTD ( [Total Revenue], dim_date[Date] )
+		formatString: \£#,0
+		displayFolder: 4. Time Intelligence
+
+	/// Revenue for the same period last year, limited to dates that have data so a partial 2020 compares like-for-like.
+	measure 'Revenue PY' = CALCULATE ( [Total Revenue], CALCULATETABLE ( SAMEPERIODLASTYEAR ( dim_date[Date] ), dim_date[Has Sales] = TRUE () ) )
+		formatString: \£#,0
+		displayFolder: 4. Time Intelligence
+
+	/// Year-over-year growth on comparable periods.
+	measure 'Revenue YoY %' = VAR _py = [Revenue PY] RETURN IF ( NOT ISBLANK ( _py ), DIVIDE ( [Total Revenue] - _py, _py ) )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 4. Time Intelligence
+
+	/// Revenue in the previous month.
+	measure 'Revenue PM' = CALCULATE ( [Total Revenue], DATEADD ( dim_date[Date], -1, MONTH ) )
+		formatString: \£#,0
+		displayFolder: 4. Time Intelligence
+
+	/// Month-over-month growth.
+	measure 'Revenue MoM %' = VAR _pm = [Revenue PM] RETURN IF ( NOT ISBLANK ( _pm ), DIVIDE ( [Total Revenue] - _pm, _pm ) )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 4. Time Intelligence
+
+	/// Most recent order date in context.
+	measure 'Last Order Date' = MAX ( fact_order_lines[order_date] )
+		formatString: dd mmm yyyy
+		displayFolder: 5. Customers
+
+	/// Recency vs the day after the last order in the data (01 Jun 2020).
+	measure 'Days Since Last Order' = VAR _ref = CALCULATE ( MAX ( fact_order_lines[order_date] ), REMOVEFILTERS () ) + 1 RETURN IF ( NOT ISBLANK ( [Last Order Date] ), DATEDIFF ( [Last Order Date], _ref, DAY ) )
+		formatString: #,0
+		displayFolder: 5. Customers
+
+	column Placeholder
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Placeholder]
+
+	partition _Measures = calculated
+		mode: import
+		source = ROW ( "Placeholder", 0 )

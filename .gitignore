@@ -33,11 +33,21 @@ Thumbs.db
 *.log
 
 # --------------------
-# Streamlit
+# Streamlit (config.toml is committed, secrets are not)
 # --------------------
-.streamlit/
+.streamlit/secrets.toml
 
 # --------------------
-# Project outputs (generated)
+# Power BI local files
+# --------------------
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+*.pbix
+
+# --------------------
+# Misc
 # --------------------
 Output/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/

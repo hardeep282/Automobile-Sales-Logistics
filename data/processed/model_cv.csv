@@ -1,0 +1,3 @@
+model,cv_r2_mean,cv_r2_std,n_fits
+Baseline: order count only,0.40988711720563076,0.2775212068549073,100
+Full: + recency + fulfilment issue,0.38866768979681227,0.2800026759347576,100

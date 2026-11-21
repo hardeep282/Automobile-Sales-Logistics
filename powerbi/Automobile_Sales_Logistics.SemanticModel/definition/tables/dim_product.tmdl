@@ -1,0 +1,28 @@
+table dim_product
+
+	column product_code
+		dataType: string
+		summarizeBy: none
+		sourceColumn: product_code
+		isKey
+
+	column product_line
+		dataType: string
+		summarizeBy: none
+		sourceColumn: product_line
+
+	/// Manufacturer's suggested retail (list) price.
+	column msrp
+		dataType: decimal
+		formatString: \£#,0.00
+		summarizeBy: none
+		sourceColumn: msrp
+
+	partition dim_product = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database(ServerName, DatabaseName),
+					Data = Source{[Schema = "gold", Item = "dim_product"]}[Data]
+				in
+					Data

@@ -1,0 +1,105 @@
+/// One row per order line (gold.fact_order_lines). Product-line revenue is exact at this grain.
+table fact_order_lines
+
+	/// Order identifier. Count orders with DISTINCTCOUNT.
+	column order_number
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: order_number
+
+	column order_line_number
+		dataType: int64
+		formatString: 0
+		isHidden
+		summarizeBy: none
+		sourceColumn: order_line_number
+
+	/// Relationship key to dim_date.
+	column order_date
+		dataType: dateTime
+		formatString: dd mmm yyyy
+		isHidden
+		summarizeBy: none
+		sourceColumn: order_date
+
+	column customer_name
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column product_code
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: product_code
+
+	column country
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: country
+
+	column status
+		dataType: string
+		isHidden
+		summarizeBy: none
+		sourceColumn: status
+
+	/// Small / Medium / Large, assigned per line in the source.
+	column deal_size
+		dataType: string
+		summarizeBy: none
+		sourceColumn: deal_size
+
+	column quantity
+		dataType: int64
+		formatString: #,0
+		isHidden
+		summarizeBy: sum
+		sourceColumn: quantity
+
+	column price_each
+		dataType: decimal
+		formatString: \£#,0.00
+		isHidden
+		summarizeBy: none
+		sourceColumn: price_each
+
+	column msrp
+		dataType: decimal
+		formatString: \£#,0.00
+		isHidden
+		summarizeBy: none
+		sourceColumn: msrp
+
+	column sales
+		dataType: decimal
+		formatString: \£#,0.00
+		isHidden
+		summarizeBy: sum
+		sourceColumn: sales
+
+	column list_value
+		dataType: decimal
+		formatString: \£#,0.00
+		isHidden
+		summarizeBy: sum
+		sourceColumn: list_value
+
+	column price_vs_msrp_pct
+		dataType: decimal
+		formatString: 0.0%
+		isHidden
+		summarizeBy: none
+		sourceColumn: price_vs_msrp_pct
+
+	partition fact_order_lines = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database(ServerName, DatabaseName),
+					Data = Source{[Schema = "gold", Item = "fact_order_lines"]}[Data]
+				in
+					Data

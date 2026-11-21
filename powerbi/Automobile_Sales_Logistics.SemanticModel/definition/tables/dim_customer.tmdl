@@ -1,0 +1,34 @@
+/// One row per customer. Personal contact details (phone, address) are excluded upstream.
+table dim_customer
+
+	column customer_name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: customer_name
+		isKey
+
+	column contact_name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: contact_name
+
+	column city
+		dataType: string
+		summarizeBy: none
+		sourceColumn: city
+		dataCategory: City
+
+	/// Customer's country (attribute only; filter by dim_country for analysis).
+	column country
+		dataType: string
+		summarizeBy: none
+		sourceColumn: country
+
+	partition dim_customer = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database(ServerName, DatabaseName),
+					Data = Source{[Schema = "gold", Item = "dim_customer"]}[Data]
+				in
+					Data
