@@ -70,11 +70,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Orders"
+                  "Property": "Revenue at Risk %"
                 }
               },
-              "queryRef": "_Measures.Total Orders",
-              "nativeQueryRef": "Total Orders"
+              "queryRef": "_Measures.Revenue at Risk %",
+              "nativeQueryRef": "Revenue at Risk %"
             },
             {
               "field": {
@@ -89,20 +89,6 @@
               },
               "queryRef": "_Measures.Revenue vs List %",
               "nativeQueryRef": "Revenue vs List %"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Revenue MoM %"
-                }
-              },
-              "queryRef": "_Measures.Revenue MoM %",
-              "nativeQueryRef": "Revenue MoM %"
             }
           ]
         }

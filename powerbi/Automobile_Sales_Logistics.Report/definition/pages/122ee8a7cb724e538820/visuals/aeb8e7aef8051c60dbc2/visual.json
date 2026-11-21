@@ -1,35 +1,20 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "8ce083b14386681a1c25",
+  "name": "aeb8e7aef8051c60dbc2",
   "position": {
-    "x": 628,
+    "x": 548,
     "y": 84,
     "z": 6000,
     "height": 620,
-    "width": 636,
+    "width": 716,
     "tabOrder": 6000
   },
   "visual": {
-    "visualType": "pivotTable",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Rows": {
+        "Values": {
           "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_country"
-                    }
-                  },
-                  "Property": "region"
-                }
-              },
-              "queryRef": "dim_country.region",
-              "nativeQueryRef": "region",
-              "active": true
-            },
             {
               "field": {
                 "Column": {
@@ -43,24 +28,20 @@
               },
               "queryRef": "dim_country.country",
               "nativeQueryRef": "country"
-            }
-          ]
-        },
-        "Values": {
-          "projections": [
+            },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "dim_country"
                     }
                   },
-                  "Property": "Total Orders"
+                  "Property": "region"
                 }
               },
-              "queryRef": "_Measures.Total Orders",
-              "nativeQueryRef": "Total Orders"
+              "queryRef": "dim_country.region",
+              "nativeQueryRef": "region"
             },
             {
               "field": {

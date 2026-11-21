@@ -31,17 +31,17 @@
             },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "dim_date"
                     }
                   },
-                  "Property": "Last Order Date"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "_Measures.Last Order Date",
-              "nativeQueryRef": "Last Order Date"
+              "queryRef": "dim_date.Date",
+              "nativeQueryRef": "Date"
             },
             {
               "field": {

@@ -93,20 +93,6 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Avg Order Value"
-                }
-              },
-              "queryRef": "_Measures.Avg Order Value",
-              "nativeQueryRef": "Avg Order Value"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
                   "Property": "Last Order Date"
                 }
               },
@@ -126,20 +112,6 @@
               },
               "queryRef": "_Measures.Days Since Last Order",
               "nativeQueryRef": "Days Since Last Order"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Revenue at Risk"
-                }
-              },
-              "queryRef": "_Measures.Revenue at Risk",
-              "nativeQueryRef": "Revenue at Risk"
             }
           ]
         }
