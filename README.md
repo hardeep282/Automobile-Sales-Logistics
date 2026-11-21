@@ -94,6 +94,25 @@ flowchart LR
 
 ---
 
+## Power BI report (PBIP, refreshed from SQL Server)
+
+Five pages on a star-schema model: one fact table at order-line grain plus date, customer, product, country and status dimensions, with 32 documented measures. Opened, refreshed and checked in Power BI Desktop. Every card matches the SQL and Python numbers exactly. Details: [`powerbi/README.md`](powerbi/README.md).
+
+![Executive overview](docs/images/powerbi/01_executive_overview.png)
+
+<p float="left">
+<img src="docs/images/powerbi/02_order_fulfilment.png" width="49%"/>
+<img src="docs/images/powerbi/03_country_risk.png" width="49%"/>
+</p>
+<p float="left">
+<img src="docs/images/powerbi/04_product_lines.png" width="49%"/>
+<img src="docs/images/powerbi/05_customers.png" width="49%"/>
+</p>
+
+<sub>Screenshots were taken on a PC with English (India) regional settings, so large numbers use lakh grouping (£97,60,222 = £9,760,222). The model culture is en-GB.</sub>
+
+---
+
 ## v2: what an audit of v1 found and fixed
 
 v1 of this project shipped with several analytical errors. Finding and fixing them was the most valuable part of the work. Full log: [docs/audit_v1_to_v2.md](docs/audit_v1_to_v2.md).
@@ -145,7 +164,7 @@ streamlit run app.py                # dashboard on http://localhost:8501
 ├── notebooks/                  01 audit & KPIs · 02 RFM · 03 clustering · 04 revenue drivers
 ├── powerbi/                    PBIP project (TMDL model + PBIR report)
 ├── reports/figures/            charts used in this README
-├── docs/                       KPI definitions · data dictionary · v1→v2 audit · v1 Power BI screenshots
+├── docs/                       KPI definitions · data dictionary · v1→v2 audit · Power BI screenshots (v2 + v1 'before')
 └── tests/                      pytest: pipeline, SQL-in-DuckDB, app
 ```
 
